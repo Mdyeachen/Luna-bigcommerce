@@ -1,0 +1,45 @@
+<style>
+    .ysw-w-mega-nav-dropdown-items.ysw-w-mega-nav-dropdown-items--{{_.id}} {
+        margin-left: {{margin_left_value.value}}{{margin_left_value.type}};
+        width: {{width_value.value}}{{width_value.type}};
+    }
+
+    {{#if enable_header '==' false}}
+        .ysw-w-mega-nav-dropdown-items.ysw-w-mega-nav-dropdown-items--{{_.id}} .ysw-w-mega-nav-dropdown-items__list  {
+            margin-top: 35px;
+        }
+    {{/if}}
+    {{#if enable_header}}
+        @media (max-width: 1024px) {
+            .ysw-w-mega-nav-dropdown-items.ysw-w-mega-nav-dropdown-items--{{_.id}} {
+                margin-top: 10px;
+            }
+        }
+    {{/if}}
+</style>
+
+<div class="ysw-w-mega-nav-dropdown-items ysw-w-mega-nav-dropdown-items--{{_.id}}">
+    {{#if enable_header}}
+        <div class="ysw-w-mega-nav-dropdown-items__header">
+            {{#if heading}}
+                <h3 class="ysw-w-mega-nav-dropdown-items__title">{{heading}}{{#or (if link_url) (if link_text)}} | {{/or}}</h3>
+            {{/if}}
+            {{#or (if link_url) (if link_text)}}
+                <a href="{{link_url}}" class="ysw-w-mega-nav-dropdown-items__link">
+                    {{link_text}}
+                </a>
+            {{/or}}
+        </div>
+    {{/if}}
+    <ul class="ysw-w-mega-nav-dropdown-items__list">
+        {{#each menu_list}}
+            {{#if hide '!=' true}}
+                <li class="ysw-w-mega-nav-dropdown-items__item">
+                    <a href="{{url}}" class="ysw-w-mega-nav-dropdown-items__item-link">
+                        {{title}}
+                    </a>
+                </li>
+            {{/if}}
+        {{/each}}
+    </ul>
+</div>

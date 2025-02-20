@@ -1,0 +1,74 @@
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+
+<main class="page">
+    <div class="page-header-title">
+        {{#unless theme_settings.hide_contact_us_page_heading }}
+        <h1 class="page-heading">{{page.title}}</h1>
+        {{/unless}}
+    </div>
+    {{#if page.sub_pages}}
+        <nav class="navBar navBar--sub">
+            <ul class="navBar-section account-navigation">
+                {{#each page.sub_pages}}
+                    <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+                {{/each}}
+            </ul>
+        </nav>
+    {{/if}}
+
+    <div class="epic-contact page-content page-content--centered">
+        <div class="contact-page-section">
+            <div class="contact-page-content">
+                {{{page.content}}}
+            </div>
+            <div class="row">
+                <div class="col-lg-9 ml-auto">
+                    <div class="text-center">
+                        <h4>Looking for Answers?</h4> 
+                        <a class="hvr-fade to-helpcenter button button--primary" href="{{theme_settings.epic_content_help_center_url}}">{{lang 'epicContent.contact.help-center-button'}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="contact-left-info">
+                        <div class="store-information text-center">
+                            <h4>Store Information</h4>
+                            {{settings.store_name}}<br>
+                            {{settings.phone_number}}
+                            <p>{{{settings.address}}}</p>
+                        </div>
+                        <div class="contact-social text-center">
+                            {{> components/common/social-links}}
+                        </div>
+                        <div class="contact-shop-img">
+                            <img width="300" alt="shop image" src='{{#if theme_settings.contact-page-shop-image "!==" ""}}{{getImage theme_settings.contact-page-shop-image}}
+                                    {{else}}
+                                        https://via.placeholder.com/320x240
+                                    {{/if}}' >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    {{> components/custom/contact-page-map}}
+                </div>
+            </div>
+            <div class="contact-page-form">
+                {{#if theme_settings.contact-form-type '==' 'typeform'}}
+                    {{> components/epicContent/typeform-embed dataurl=theme_settings.epic_content_contact_url}}
+                {{else if theme_settings.contact-form-type '==' 'jotform'}}
+                    {{> components/epicContent/jotform-embed dataurl=theme_settings.epic_content_contact_url}}
+                {{/if}}
+            </div>
+        </div>    
+            
+    </div>
+
+</main>
+
+{{/partial}}
+
+{{> layout/base}}

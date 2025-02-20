@@ -1,0 +1,45 @@
+
+---
+products:
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+---
+{{#partial "page"}}
+
+<div class="e-header">
+    <h1>Oops!</h1>
+    <h2>The Page you requested was not found!</h2>
+</div>
+
+<main class="page">
+    <div class="container">
+        <div class="row row-404 justify-content-between">
+            <div class="col-12 col-lg-5 left-404">
+                <h4>We can't seem to find the page you're looking for. <br>Please check the URL and try again.</h4>
+                <p>Error code: 404</p>
+            </div>
+            <div class="col-12 col-lg-5 right-404">
+                <h2>Try a Search, up top</h2>
+                <p>or</p>
+                <div class="text-center">
+                    <a class="button button--primary" href="{{urls.home}}">Back To Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{#if products.featured}}
+    <section class="featured-product-section home-section" style="padding-bottom: 0 !important">
+            {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+    </section>
+    {{/if}}
+</main>
+<style>
+    .row-404 {
+    padding-bottom: 0 !important;
+    }
+    #main-content {
+        margin-bottom: 0 !important;
+    }
+</style>
+{{/partial}}
+{{> layout/base}}

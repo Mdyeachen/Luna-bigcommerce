@@ -1,0 +1,19 @@
+.category-nav{
+  &__content {
+    padding-inline: remCalc(15px);
+    grid-template-columns: repeat(2, 1fr);
+    gap: remCalc(15px 30px);
+    display: grid;
+
+    @include ysw-breakpoint("b-small") {
+      padding-inline: 0;
+      grid-template-columns: repeat(auto-fit, minmax(remCalc(200px), 1fr));
+      gap: remCalc(15px 30px);
+    }
+  }
+
+  &__item {
+    padding: 0;
+    max-width: none;
+  }
+}

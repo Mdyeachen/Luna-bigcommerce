@@ -1,0 +1,90 @@
+[
+  {
+    "type": "array",
+    "label": "YSW Menu List",
+    "id": "menu_list",
+    "defaultCount": 0,
+    "entryLabel": "Card Collection",
+    "schema": [
+      {
+        "type": "tab",
+        "label": "Card",
+        "sections": [
+          {
+            "settings": [
+              {
+                "type": "input",
+                "label": "title",
+                "id": "title",
+                "placeholder": "Enter title",
+                "default": "Title 1"
+              },
+              {
+                "type": "input",
+                "label": "url",
+                "id": "url",
+                "placeholder": "Enter url",
+                "default": "https://"
+              },
+              {
+                "type": "boolean",
+                "label": "Hide",
+                "id": "hide",
+                "default": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "tab",
+    "label": "Global",
+    "sections": [
+      {
+        "label": "General",
+        "settings": [
+          {
+            "type": "number",
+            "label": "Margin left Value",
+            "id": "margin_left_value",
+            "default": { "value": 0, "type": "px" },
+            "typeMeta": { "parseType": "integer" }
+          },
+          {
+            "type": "number",
+            "label": "Width Value",
+            "id": "width_value",
+            "default": { "value": 265, "type": "px" },
+            "typeMeta": { "parseType": "integer" }
+          },
+          {
+            "type": "boolean",
+            "label": "Enable Header",
+            "id": "enable_header",
+            "default": true
+          },
+          {
+            "type": "input",
+            "label": "Heading text",
+            "id": "heading",
+            "default": "Heading"
+          },
+          {
+            "type": "input",
+            "label": "Link Text",
+            "id": "link_text",
+            "default": "Link Text"
+          },
+          {
+            "type": "input",
+            "label": "Link Url",
+            "id": "link_url",
+            "default": "#"
+          }
+        ]
+      }
+    ]
+  }
+]

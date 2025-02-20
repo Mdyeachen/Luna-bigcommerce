@@ -1,0 +1,179 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{inject "categoryId" category.id}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+
+    <script type="application/ld+json">
+    //Catagory Breadcrumbs schema
+    {
+      "@context": "https://schema.org/", 
+      "@type": "BreadcrumbList", 
+      "itemListElement": [{
+        "@type": "ListItem", 
+        "position": 2, 
+        "name": "{{head.title}}",
+        "item": "{{category.url}}"  
+      }]
+      //Catagory Breadcrumbs finished
+    }
+</script>
+    <script>
+        //Search Magic Custom installs adding comment
+        window.ysw_search_magic_custom_load_script = function(){
+            yswSML.settings.current_page_data.category_id = 'c{{ category.id }}';
+            yswSML.inject_script();
+        }
+        //end Search Magic Custom Install
+    </script>
+
+
+<div class="container-fluid {{#if theme_settings.contain-category-pages}}container{{else}}container-lg-p{{/if}}">
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+    {{#unless theme_settings.hide_category_page_heading }}
+        <h1 class="page-heading">
+            {{category.name}}
+        </h1>
+
+        {{{region name="category_below_header"}}}
+    {{/unless}}
+
+    <div class="page">
+        <div id="ysw-search-vertical-container" class="sm-section">
+            {{#and (if theme_settings.category-sidebar) (unless category.subcategories)}}
+                <div id="ysw-search-left-column">
+                    <div id="ysw-search-filters-div"></div>
+                </div>
+            {{/and}}
+
+            {{#unless category.subcategories}}
+                <div id="ysw-search-right-column">
+                    <div id="ysw-search-vertical-top-nav"></div>
+                    <div id="ysw-search-results-div"></div>
+                    <div id="ysw-search-vertical-bottom-nav"></div>
+                </div>
+            {{/unless}}
+        </div>
+
+        <main class="page-content{{#unless category.subcategories}} search-magic-remove{{/unless}} {{#if theme_settings.large-product-cards}}large-cards{{/if}}" id="product-listing-container">
+            {{#if theme_settings.dropdown-category--nav}}
+                {{#if category.subcategories}}
+                    <fieldset class="subcategory-form-field form-fieldset actionBar-section">
+                        <div class="form-field">
+                            <label class="form-label" for="sort">Sub Category</label>
+                            <select class="form-select form-select--small" name="sub-category-drop-down" id="sub-category">
+                                <option selected="selected" data-sub-category-url="{{category.url}}" value="{{category.id}}">{{category.name}} &nbsp; &nbsp;</option>
+                                {{#each category.subcategories}}
+                                    <option data-sub-category-url="{{url}}" value="{{id}}">{{name}} &nbsp; &nbsp;</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </fieldset>
+                {{/if}}
+            {{/if}}
+
+            {{#if category.subcategories}}
+                <div class="category-nav">
+                    <div class="category-nav__content row">
+                        {{#each category.subcategories}}
+                            <div class="category-nav__item col-lg-3 col-md-4 col-6">
+                                <a href="{{url}}" class="category-nav__thumbnail">
+                                    <img
+                                        class="category-nav__img-thumbnail"
+                                        src="{{getImage image 'category_card_size' (cdn ../theme_settings.default_image_product)}}"
+                                        alt="{{name}}"
+                                    />
+                                </a>
+                                <div class="category-nav__body">
+                                    <h4 class="category-nav__name">
+                                        <a class="category-nav__name-link" href="{{url}}">
+                                            {{name}}
+                                        </a>
+                                    </h4>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            {{/if}}
+            
+            <div id="ysw-search-vertical-container" class="sm-section" style="background: #f2f2f263; padding-top: 20px">
+                {{#unless theme_settings.hide_category_page_heading }}
+                
+                
+            {{#unless (if theme_settings.category-sidebar) (unless category.subcategories)}}
+                    <h1 class="page-heading">
+                        All {{category.name}}
+                    </h1>
+            {{/unless}}
+            
+                {{/unless}}
+                <div id="ysw-search-right-column">
+                    <div id="ysw-search-results-div"></div>
+                    <div id="ysw-search-vertical-bottom-nav"></div>
+                    </div>
+             </div>
+            <style>
+                #ysw-search-vertical-container #ysw-search-right-column {
+                	width: 100%;
+                }
+            </style>
+            {{{region name="category_below_content"}}}
+        
+        </main>
+    </div>
+    
+        
+            
+
+    <div class="category-description" style="display:block">
+        {{{category.description}}}
+    </div>
+    <style>
+        .category-description a {
+	        text-decoration: underline;
+	        font-weight: 600;
+        }
+        #ysw-search-vertical-container .ysw-search-vertical-results .item-box .onSale{
+            z-index: 9 !important;
+        }
+    </style>
+</div>
+
+<script src="https://www.resellerratings.com/productreviews/category/Bodyjewelry_com.js"></script>
+
+<script>
+if (typeof gtag === 'function') {
+    gtag('event', 'view_category', {
+        'send_to': 'AW-1068596292',
+    });
+}
+</script>
+
+<script>
+window.uetq = window.uetq || [];
+window.uetq.push('event', '', {
+    'ecomm_prodid': '',
+    'ecomm_pagetype': 'category',
+    'ecomm_totalvalue': 0
+});
+/* The ecomm_prodid parameter is the product ID of the product on the page. It is unique for each item and must match either the id or item_group_id attribute in your product feed. Numeric and alphanumeric (including hyphens) characters only, with a maximum of 50 characters. */
+/* The ecomm_pagetype parameter identifies the type of page the user has visited. Valid options: home, searchresults, category, product, cart, purchase, other. */
+</script>
+
+{{/partial}}
+{{> layout/base}}

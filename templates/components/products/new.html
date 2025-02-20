@@ -1,0 +1,11 @@
+<div class="section-heading">
+	<h2 class="section-title">{{lang 'products.new' }}</h2>
+	<p class="section-subtitle">{{lang 'products.new_description' store_name=settings.store_name}}</p>
+</div>
+
+<!-- if want to create new section with carousel than replace grid to carousel word in bottom section -->
+{{#if settings.data_tag_enabled}}
+    {{> components/products/grid products=products list="New Products"}}
+{{else}}
+    {{> components/products/grid products=products}}
+{{/if}}

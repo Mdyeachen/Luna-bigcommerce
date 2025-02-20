@@ -1,0 +1,40 @@
+<a
+    href="{{product.url}}#warranty-info"
+    class="ysw-warranty-info"
+    {{#unless is_ajax }}
+        data-reveal-id="modal-warranty"
+    {{/unless}}
+>
+    Check Warranty Information
+</a>
+
+<div id="modal-warranty" class="ysw-warranty-info-modal modal modal--smal" data-reveal>
+    <div class="modal-header">
+        <h2 class="modal-header-title">
+            Warranty Protection Plan
+        </h2>
+        {{> components/common/modal/modal-close-btn}}
+    </div>
+     <div class="modal-body">
+        <p>
+            3&4 Years
+        </p>
+        <p>
+            Whether you a three years or four years warranty you are guaranteed to have your jewelry replaced at no extra cost. If beginning from the date of purchase, replacement guaranteed if your jewelry is:
+        </p>
+
+        <ul>
+            <li>Broken</li>
+            <li>Damaged</li>
+            <li>Lost Parts</li>
+        </ul>
+
+        <p>
+            Your warranty covers 100% percent of the cost of your jewelry, Not including shipping. No exceptions.
+        </p>
+
+        <p>
+            To make use of your warranty please notify us via email a <a href="mailto:support@bodyjewelry.com">support@bodyjewelry.com</a> oor call toll-free: 1-888-242-6166.
+        </p>
+    </div>
+</div>

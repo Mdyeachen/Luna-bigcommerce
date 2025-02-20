@@ -1,0 +1,23 @@
+{{#if children}}
+    <a class="ysw-c-mega-nav__item-action navPages-action has-subMenu {{#if is_active}}activePage{{/if}}"
+        href="{{url}}"
+    >
+        {{name}}
+        <i class="ysw-c-mega-nav__item-icon icon navPages-action-moreIcon" aria-hidden="true">
+            <svg>
+                <use xlink:href="#icon-chevron-down" />
+            </svg>
+        </i>
+    </a>
+
+    <div class="ysw-c-mega-nav__sub-menu navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+        {{{region name=(concat (concat "navigation-menu-" id) "--global")}}}
+    </div>
+{{else}}
+        <a class="ysw-c-mega-nav__item-action navPages-action{{#if is_active}} activePage{{/if}}"
+            href="{{url}}"
+            aria-label="{{name}}"
+        >
+            {{name}}
+        </a>
+{{/if}}

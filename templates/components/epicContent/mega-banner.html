@@ -1,0 +1,105 @@
+<div class="mega-img-items">
+    <div class="mega-img-item">
+        {{#if theme_settings.epic_content_mega_banner_image_url_one "!==" ""}}
+            <div class="widget-banner wid-height">
+                <a href="{{theme_settings.epic_content_mega_banner_link_url_one}}">
+                    <img class="img-responsive" src="{{getImageManagerImage theme_settings.epic_content_mega_banner_image_url_one}}" alt="{{theme_settings.epic_content_mega_banner_image_alt_tag_one}}" title="{{theme_settings.epic_content_mega_banner_image_alt_tag_one}}"/>
+                </a>
+            </div>
+        {{/if}}
+        {{#if theme_settings.epic_content_mega_banner_image_url_two "!==" ""}}
+            <div class="widget-banner wid-height">
+                <a href="{{theme_settings.epic_content_mega_banner_link_url_two}}">
+                    <img class="img-responsive" src="{{getImageManagerImage theme_settings.epic_content_mega_banner_image_url_two}}" alt="{{theme_settings.epic_content_mega_banner_image_alt_tag_two}}" title="{{theme_settings.epic_content_mega_banner_image_alt_tag_two}}"/>
+                </a>
+            </div>
+        {{/if}}
+    </div>
+    <div class="mega-img-item">
+        {{#if theme_settings.epic_content_mega_banner_image_url_three "!==" ""}}
+            <div class="widget-banner">
+                <a href="{{theme_settings.epic_content_mega_banner_link_url_three}}">
+                    <img class="img-responsive" src="{{getImageManagerImage theme_settings.epic_content_mega_banner_image_url_three}}" alt="{{theme_settings.epic_content_mega_banner_image_alt_tag_three}}" title="{{theme_settings.epic_content_mega_banner_image_alt_tag_three}}"/>
+                </a>
+            </div>
+        {{/if}}
+    </div>
+    <div class="mega-img-item">
+        {{#if theme_settings.epic_content_mega_banner_image_url_four "!==" ""}}
+            <div class="widget-banner wid-height">
+                <a href="{{theme_settings.epic_content_mega_banner_link_url_four}}">
+                    <img class="img-responsive" src="{{getImageManagerImage theme_settings.epic_content_mega_banner_image_url_four}}" alt="{{theme_settings.epic_content_mega_banner_image_alt_tag_four}}" title="{{theme_settings.epic_content_mega_banner_image_alt_tag_four}}"/>
+                </a>
+            </div>
+        {{/if}}
+        {{#if theme_settings.epic_content_mega_banner_image_url_five "!==" ""}}
+            <div class="widget-banner wid-height">
+                <a href="{{theme_settings.epic_content_mega_banner_link_url_five}}">
+                    <img class="img-responsive" src="{{getImageManagerImage theme_settings.epic_content_mega_banner_image_url_five}}" alt="{{theme_settings.epic_content_mega_banner_image_alt_tag_five}}" title="{{theme_settings.epic_content_mega_banner_image_alt_tag_five}}"/>
+                </a>
+            </div>
+        {{/if}}
+    </div>
+</div>
+<div class="row">
+    {{#if theme_settings.epic_content_mega_banner_image_url_six "!==" ""}}
+        <div class="col-md-6">
+            <div class="widget-banner hvr-grow-subtle">
+                <a class="hvr-trim-subtle" href="{{theme_settings.epic_content_mega_banner_link_url_six}}">
+                    <img class="img-responsive" src="{{getImageManagerImage theme_settings.epic_content_mega_banner_image_url_six}}" alt="{{theme_settings.epic_content_mega_banner_image_alt_tag_six}}" />
+                </a>
+            </div>
+        </div>
+    {{/if}}
+    {{#if theme_settings.epic_content_mega_banner_image_url_seven "!==" ""}}
+        <div class="col-md-6">
+            <div class="widget-banner hvr-grow-subtle">
+                <a class="hvr-trim-subtle" href="{{theme_settings.epic_content_mega_banner_link_url_seven}}">
+                    <img class="img-responsive" src="{{getImageManagerImage theme_settings.epic_content_mega_banner_image_url_seven}}" alt="{{theme_settings.epic_content_mega_banner_image_alt_tag_seven}}" />
+                </a>
+            </div>
+        </div>
+    {{/if}}
+</div>
+
+<style>
+    .mega-img-items {
+          display: grid;
+          grid-template-columns: repeat(10, 1fr);
+        }
+        .mega-img-item {
+          grid-column: auto / span 3;
+          display: none;
+        }
+        .mega-img-item:nth-child(2) {
+          grid-column: auto / span 10;
+          display: block;
+        }
+        
+        @media (min-width: 767px) {
+          .widget-banner img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+        
+        @media (max-width: 420px) {
+.mega-img-item:nth-child(2) {
+	display: block;
+}
+.mega-img-item {
+	display: none;
+}
+}
+
+@media (max-width: 600px) {
+.mega-img-item {
+	grid-column: auto / span 5;
+}
+.mega-img-item:nth-child(2) {
+	grid-column: auto / span 10;
+	grid-row-start: 1;
+}
+}
+</style>

@@ -1,0 +1,168 @@
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<main class="page">
+
+    <!-- reseller form page title -->
+    {{#unless theme_settings.hide_page_heading }}
+        <h1 class="page-heading">{{ page.title }}</h1>
+    {{/unless}}
+
+    {{{region name="page_builder_content"}}}
+
+    <div class="page-content page-content--centered">
+        {{#replace '%%Syndicate%%' page.content}}
+            {{> components/page/rss_feed}}
+        {{else}}
+            <p>{{{page.content}}}</p>
+        {{/replace}}
+    </div>
+
+    <div class="reseller-form">
+        <form id="resellerForm" data-toEmail="abcd@gmail.com">
+            <!-- Business Name -->
+            <div class="businessName">
+                <label for="businessName">Business Name</label>
+                <input 
+                    type="text" 
+                    name="businessName" 
+                    id="businessName" 
+                    placeholder="Body Jewelry" 
+                    aria-label="businessName"
+                >
+            </div>
+            <!-- Website Url -->
+            <div class="url">
+                <label for="url">Website URL</label>
+                <input 
+                    type="url" 
+                    name="url" 
+                    id="url" 
+                    placeholder="https://xyz.com/" 
+                    aria-label="url"
+                >
+            </div>
+            <!-- Business Type -->
+            <div class="business-type">
+                <label for="business-type">Business Type</label>
+                <select name="business-type" id="business-type">
+                    <option value="Online Store">Online Store</option>
+                    <option value="Social Media Seller">Social Media Seller</option>
+                    <option value="Marketplace Seller">Marketplace Seller (Amazon, eBay, Etsy)</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+            <!-- Full Name -->
+            <div class="name">
+                <label for="name">Full Name</label>
+                <input 
+                    type="text" 
+                    name="name" 
+                    id="name" 
+                    placeholder="Avi Gidon" 
+                    aria-label="name"
+                >
+            </div>
+            <!-- email -->
+            <div class="email">
+                <label for="email">E mail</label>
+                <input 
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    placeholder="info@gmail.com" 
+                    aria-label="email"
+                >
+            </div>
+            <!-- Phone Number -->
+            <div class="number">
+                <label for="number">Phone Number</label>
+                <input 
+                    type="text" 
+                    name="number" 
+                    id="number" 
+                    placeholder="+017 954 777 17" 
+                    aria-label="phone number"
+                >
+            </div>
+            <!-- Country -->
+            <div class="country">
+                <label for="country">Country</label>
+                <input 
+                    type="text" 
+                    name="country" 
+                    id="country" 
+                    placeholder="United States" 
+                    aria-label="Country"
+                >
+            </div>
+            <!-- business-goals -->
+            <div class="business-goals">
+                <label for="business-goals">Business Goals</label>
+                <input 
+                    type="text" 
+                    name="business-goals" 
+                    id="business-goals" 
+                    placeholder="Describe your goals" 
+                    aria-label="Business Goals"
+                >
+            </div>
+            <!-- business-goals -->
+            <div class="submit">
+                <input 
+                    type="submit" 
+                    name="submit" 
+                    id="submit" 
+                    value="Submit"
+                    aria-label="submit"
+                >
+            </div>
+        </form>
+    </div>
+
+
+<script>
+    const formHandler = document.getElementById("resellerForm");
+
+    // submit event
+    formHandler.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        
+
+        // collect form data
+        const formData = new FormData(formHandler);
+        const formDataObject = {}
+
+        formData.forEach((value, key) => {
+            formDataObject[key] = value
+        })
+
+        // cliend email get by attribute
+        formDataObject.SendingMailAddress = formHandler.getAttribute("data-toEmail");
+
+        // post the data & sent it to client mail
+        // send data to the server
+        fetch("https://mailsenderbackend-production-abc5.up.railway.app/api/reseller", {
+                method : "POST",
+                headers : {
+                    "content-type" : "application/json"
+                },
+                body : JSON.stringify(formDataObject)
+            })
+            .then(response => response.json())
+            .then(data => console.log("sucess", data))
+            .catch(error => console.log(error))
+
+        console.log(formDataObject);
+    })
+</script>
+
+
+
+</main>
+
+{{/partial}}
+
+{{> layout/base}}

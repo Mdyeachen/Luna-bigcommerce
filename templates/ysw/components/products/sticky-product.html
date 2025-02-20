@@ -1,0 +1,64 @@
+<template id="sticky-product-template">
+    <div class="ysw-c-sticky-product-info" id="sticky-product">
+        <div class="ysw-c-sticky-product-info__container container">
+            {{#if product.main_image}}
+                <figure class="ysw-c-sticky-product-info__image">
+                    {{> components/common/responsive-img
+                        image=product.main_image
+                        class="productView-image--cart"
+                        fallback_size=../theme_settings.product_size
+                        lazyload=../theme_settings.lazyload_mode
+                        default_image=../theme_settings.default_image_product
+                    }}
+                </figure>
+            {{/if}}
+
+            <div class="ysw-c-sticky-product-info__wrapper">
+                <div class="ysw-c-sticky-product-info__description">
+                    <h3 class="ysw-c-sticky-product-info__description-title">
+                        {{product.title}}
+                    </h3>
+                    {{!-- Shopper Approved Product Stars - templates/components/products/product-view --}}
+                    <div id="product_just_stars" class="reg"></div>
+                    {{!-- END Shopper Approved Product Stars - templates/components/products/product-view --}}
+                </div>
+
+                <div class="ysw-c-sticky-product-info__form">
+                    <div class="form-field form-field--increments">
+                        <div class="form-increment">
+                            <button class="button button--icon" data-action="dec">
+                                <span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
+                                <i class="icon" aria-hidden="true">
+                                    <svg>
+                                        <use xlink:href="#icon-keyboard-arrow-down"/>
+                                    </svg>
+                                </i>
+                            </button>
+                            <input class="form-input form-input--incrementTotal"
+                                id="stycky-product-quantity"
+                                type="tel"
+                                value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
+                                data-quantity-min="{{product.min_purchase_quantity}}"
+                                data-quantity-max="{{product.max_purchase_quantity}}"
+                                min="1"
+                                pattern="[0-9]*"
+                                aria-live="polite">
+                            <button class="button button--icon" data-action="inc">
+                                <span class="is-srOnly">{{lang 'products.quantity_increase'}}</span>
+                                <i class="icon" aria-hidden="true">
+                                    <svg>
+                                        <use xlink:href="#icon-keyboard-arrow-up"/>
+                                    </svg>
+                                </i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-action">
+                        <input class="button button--primary" type="submit" value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

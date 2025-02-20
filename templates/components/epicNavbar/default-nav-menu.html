@@ -1,0 +1,160 @@
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-2 fixed-logo">
+{{#if theme_settings.logo-for-fixed-header "==" ""}}
+    {{> components/common/store-logo}}
+    {{else}}
+    <a href="{{urls.home}}" class="fixed-logo-img"><img src="{{getImage theme_settings.logo-for-fixed-header}}"></a>
+{{/if}}
+</div>
+<div class="col-md-8 navPages-container" id="menu" data-menu>
+<nav class="navPages {{theme_settings.column-per-row}}">
+    <div class="navPages-quickSearch">
+        {{#if theme_settings.epic_hide_search_navigation}}
+            {{> components/common/quick-search}}
+        {{/if}}
+
+    <div class="mobile-call-us">
+        <a href="tel:{{settings.phone_number}}">Call Us</a>
+    </div>
+            {{#if customer}}
+            <div class="mobile-my-account">
+                <a href="{{urls.account.index}}">My Account</a>
+            </div>
+            <div class="mobile-my-account">
+                <a href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
+            </div>
+            {{else}}
+                <div class="mobile-my-account">
+                    <a href="{{urls.auth.login}}">Sign in / Register</a>
+                </div>
+            {{/if}}
+            </div>
+    <ul class="navPages-list">
+
+        {{#each categories}}
+            <li class="navPages-item">
+                {{> components/epicNavbar/default-nav-item theme_settings=../theme_settings}}
+            </li>
+        {{/each}}
+        {{#each pages}}
+             <li class="navPages-item navPages-item-page">
+                {{#if children}}
+                <a class="navPages-action has-subMenu" href="{{url}}" data-collapsible="navPages-index{{@index}}">{{name}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i></a>
+                <div class="navPage-subMenu" id="navPages-index{{@index}}" aria-hidden="true" tabindex="-1">
+                    <ul class="navPage-subMenu-list">
+                        {{#each children}}
+                        <li class="navPage-subMenu-item">
+                            <a class="navPage-subMenu-action navPages-action" href="{{url}}">{{name}}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{else}}
+                    <a class="navPages-action" href="{{url}}">{{name}}</a>
+                {{/if}}
+             </li>
+         {{/each}}
+    </ul>
+    <ul class="navPages-list navPages-list--user">
+        {{#if currency_selector.currencies.length '>' 1}}
+            <li class="navPages-item">
+                <a class="navPages-action has-subMenu" href="#" data-collapsible="navPages-currency" aria-controls="navPages-currency" aria-expanded="false">
+                    {{lang 'common.currency' code=currency_selector.active_currency_code}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-down"></use></svg></i>
+                </a>
+                <div class="navPage-subMenu" id="navPages-currency" aria-hidden="true" tabindex="-1">
+                    <ul class="navPage-subMenu-list">
+                        {{#each currency_selector.currencies}}
+                        <li class="navPage-subMenu-item">
+                            <a class="navPage-subMenu-action navPages-action" href="{{{switch_url}}}">
+                                {{#if is_active}}
+                                    <strong>{{name}}</strong>
+                                {{else}}
+                                    {{name}}
+                                {{/if}}
+                            </a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </li>
+        {{/if}}
+        {{#if settings.gift_certificates_enabled}}
+            <li class="navPages-item">
+                <a class="navPages-action" href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
+            </li>
+        {{/if}}
+        {{#if customer.store_credit.value '>' 0}}
+            <li class="navPages-item">
+                <a class="navPages-action navPages-action--storeCredit">
+                    {{lang 'common.store_credit_overview' credit=customer.store_credit.formatted}}
+                </a>
+            </li>
+        {{/if}}
+        {{#if theme_settings.product_list_display_mode '==' 'list'}}
+            <li class="navPages-item">
+                <a class="navPages-action navPages-action--compare" href="{{urls.compare}}" data-compare-nav>{{lang 'common.compare'}} <span class="countPill countPill--positive countPill--alt"></span></a>
+            </li>
+        {{/if}}
+        {{#if customer}}
+            <li class="navPages-item">
+                <a class="navPages-action has-subMenu" href="{{urls.account.index}}" data-collapsible="navPages-account">
+                    {{lang 'common.account'}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                </a>
+                <div class="navPage-subMenu" id="navPages-account" aria-hidden="true" tabindex="-1">
+                    <ul class="navPage-subMenu-list">
+                        <li class="navPage-subMenu-item">
+                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.orders.all}}">{{lang 'account.nav.orders'}}</a>
+                        </li>
+                        {{#if settings.returns_enabled}}
+                            <li class="navPage-subMenu-item">
+                                <a class="navPage-subMenu-action navPages-action" href="{{urls.account.returns}}">{{lang 'account.nav.returns'}}</a>
+                            </li>
+                        {{/if}}
+                        <li class="navPage-subMenu-item">
+                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.inbox}}">{{lang 'account.mobile_nav.messages'}}</a>
+                        </li>
+                        <li class="navPage-subMenu-item">
+                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.addresses}}">{{lang 'account.nav.addresses'}}</a>
+                        </li>
+                        <li class="navPage-subMenu-item">
+                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.wishlists.all}}">{{lang 'account.mobile_nav.wishlists'}}</a>
+                        </li>
+                        <li class="navPage-subMenu-item">
+                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.recent_items}}">{{lang 'account.nav.recently_viewed'}}</a>
+                        </li>
+                        <li class="navPage-subMenu-item">
+                            <a class="navPage-subMenu-action navPages-action" href="{{urls.account.details}}">{{lang 'account.nav.settings'}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        {{/if}}
+        <!-- {{#if theme_settings.social_icon_placement_top}}
+            <li class="navPages-item">
+                {{> components/common/social-links}}
+            </li>
+        {{/if}} -->
+    </ul>
+    </nav>
+    </div>
+    <div class="col-md-2  text-right nav-search">
+            <a href="{{urls.account.index}}"><i class="far fa-user"></i></a>
+            <a href="{{urls.cart}}"><i class="far fa-shopping-cart"></i><span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span></a>
+            {{#if theme_settings.epic_hide_search_navigation}}
+                <a class="dropdown-button-search" href="javascript:void(0)" data-activates="dropdown-search">
+                    <i class="far fa-search"></i>
+                    <i class="fal fa-times"></i>
+                </a>
+                <div id="dropdown-search" class="dropdown-search">
+                    <form class="form"  action="{{urls.search}}">
+                        <div class="search-input-field">
+                            <input name="search_query_adv" value="{{forms.search.query}}" class="_search" type="search" autocomplete="off" placeholder="Search...">
+                            <input  class="btn" type="submit" name="go" value="{{lang 'epicHeader.search'}}">
+                        </div>
+                    </form>
+                </div>
+            {{/if}}
+    </div>
+</div>
+</div>

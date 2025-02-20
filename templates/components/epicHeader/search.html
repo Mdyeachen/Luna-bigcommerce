@@ -1,0 +1,20 @@
+<div class="header-search">
+    {{{ snippet "forms_search"}}}
+    <form class="form"  action="{{urls.search}}">
+        <select name="category-search" id="resizing_select" class="browser-default top-select form-select">
+            <option value="" selected>All &nbsp;</option>
+            {{#each categories}}
+                <option data-category-url="{{url}}" value="{{id}}">{{name}} &nbsp;</option>
+            {{/each}}
+        </select>
+        <select id="width_tmp_select">
+            <option id="width_tmp_option"></option>
+        </select>
+        <div class="search-input-field">
+            <input name="search_query_adv" data-search-quick class="search_" type="search" autocomplete="off" onfocus="this.placeholder=''" onblur="this.placeholder='{{theme_settings.header-search-text}}'" placeholder="{{theme_settings.header-search-text}}">
+            <button  class="button btn btn2" name="go" value="{{lang 'epicHeader.search'}}">
+                <i class="far fa-search" aria-hidden="true"></i>
+            </button>
+        </div>
+    </form>
+</div>

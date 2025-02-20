@@ -1,0 +1,90 @@
+.navPages {
+.ysw-w-mega-nav-dropdown-items {
+    background-color: $ysw-color-meganav-dropdown-item-background;
+    border: remCalc(1px) solid $ysw-color-meganav-dropdown-item-border;
+    display: inline-block;
+
+    &:hover,
+    &:focus {
+        background-color: $ysw-color-meganav-dropdown-item-background-hover;
+    }
+
+    &:active {
+        background-color: $ysw-color-meganav-dropdown-item-background-active;
+    }
+
+    &__header {
+        margin: 0 0 remCalc(15px);
+    }
+
+    &__title {
+        color: $ysw-color-meganav-dropdown-item-text-header;
+        display: inline-block;
+        font-size: remCalc(15px);
+        font-weight: 600;
+        line-height: remCalc(20px);
+        margin: 0;
+        text-transform: none;
+    }
+
+    &__link {
+        color: $ysw-color-meganav-dropdown-item-text-header-link;
+        font-size: remCalc(14px);
+        font-weight: 400;
+        margin-left: remCalc(5px);
+        text-decoration: underline;
+
+        &:hover,
+        &:focus {
+            color: $ysw-color-meganav-dropdown-item-text-header-link-hover;
+        }
+
+        &:active {
+            color: $ysw-color-meganav-dropdown-item-text-header-link-active;
+        }
+    }
+
+    &__list {
+        font-size: remCalc(13px);
+        list-style: outside;
+        padding-left: remCalc(20px);
+        list-style: none;
+
+        @include ysw-breakpoint-down("medium") {
+            margin: 0;
+            margin-top: 0 !important; // override default margin
+            padding: 0;
+        }
+    }
+
+    &__item {
+        margin-bottom: remCalc(11px);
+
+        @include ysw-breakpoint-down("medium") {
+            margin-bottom: remCalc(10px);
+        }
+
+        &-link {
+            color: $ysw-color-meganav-dropdown-item-text;
+            font-size: $ysw-font-meganav-sub-item-font-size;
+            text-decoration: none;
+            text-transform: capitalize;
+            display: flex;
+
+            &:visited {
+                color: $ysw-color-meganav-dropdown-item-text;
+                cursor: pointer;
+            }
+
+            &:hover,
+            &:focus {
+                color: $ysw-color-meganav-dropdown-item-text-hover;
+            }
+
+            &:active {
+                color: $ysw-color-meganav-dropdown-item-text-active;
+            }
+        }
+    }
+}
+}

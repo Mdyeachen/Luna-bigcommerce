@@ -1,0 +1,46 @@
+.instagram-section
+{
+    padding-top:40px;
+    .instagram_gallery
+    {
+        padding: 0 2px 2px;
+        .slick-track
+        {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+        .slick-slide
+        {
+            display:block;
+            padding:2px;
+            position: relative;
+            height:auto;
+            img
+            {
+                width: 100%!important;
+                float:none!important;
+            }
+        }
+        .slick-arrow
+        {
+            margin: 0;
+            height: 100%;
+            top: 0;
+            padding: 1rem;
+            width: 3.42857rem;
+            overflow: hidden;
+            transform: translate(0);
+            background-color: rgba(255, 255, 255, 0.7);
+            &.slick-prev
+            {
+                left:0;
+            }
+            &.slick-next
+            {
+                right:0;
+            }
+        }
+    }
+}

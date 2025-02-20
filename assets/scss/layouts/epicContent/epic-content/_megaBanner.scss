@@ -1,0 +1,53 @@
+.hvr-grow-subtle
+{
+    display: inline-block;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    transition-duration: 1.5s;
+    transition-property: transform;
+}
+.hvr-trim-subtle
+{
+    display: inline-block;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    position: relative;
+}
+.hvr-trim-subtle:before 
+{
+    content: '';
+    position: absolute;
+    border: white solid 4px;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    opacity: 0;
+    transition-duration: 0.3s;
+    transition-property: opacity;
+}
+.hvr-grow-subtle:hover, .hvr-grow-subtle:focus, .hvr-grow-subtle:active 
+{
+    transform: scale(1.05);
+}
+.hvr-trim-subtle:hover:before, .hvr-trim-subtle:focus:before, .hvr-trim-subtle:active:before 
+{
+    opacity: 0.3;
+}
+.mega-banner
+{
+    padding-top:30px!important;
+    .widget-banner 
+    {
+        margin-bottom: 30px;
+    }
+}
+@media only screen and (max-width:1600px)
+{
+    .mega-banner
+    {
+        padding: 0 15px;
+    }
+}

@@ -1,0 +1,12 @@
+.productView-image
+{
+	background-color:$product-image-background-color;
+}
+@media only screen and (min-width: 1261px)
+{
+	.productView-description
+	{
+	    float: left;
+	    width: 100%;
+	}
+}

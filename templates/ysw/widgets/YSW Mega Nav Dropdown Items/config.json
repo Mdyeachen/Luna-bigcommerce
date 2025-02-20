@@ -1,0 +1,20 @@
+{
+  "menu_list": [
+    {
+      "title": "Title 1",
+      "url": "https://"
+    }
+  ],
+  "margin_left_value": {
+    "value": 0,
+    "type": "px"
+  },
+  "width_value": {
+    "value": 265,
+    "type": "px"
+  },
+  "enable_header": true,
+  "heading": "Heading",
+  "link_text": "Link Text",
+  "link_url": "#"
+}

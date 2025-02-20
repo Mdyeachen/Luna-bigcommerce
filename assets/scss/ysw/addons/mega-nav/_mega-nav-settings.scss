@@ -1,0 +1,63 @@
+// Mega Nav Addon
+// -----------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+
+// Navigation Font
+// -----------------------------------------------------------------------------
+$ysw-font-meganav-item-font-size: remCalc(16px);
+$ysw-font-meganav-sub-item-font-size: remCalc(16px);
+
+// Navigation Container Width
+// ------------------------------- ----------------------------------------------
+$ysw-mega-scroll-menu-container-width: remCalc(1360px);
+
+// Navigation Colors
+// -----------------------------------------------------------------------------
+$ysw-color-meganav-background: stencilColor("ysw_meganav_color_background");
+$ysw-color-meganav-border: stencilColor("ysw_meganav_color_border");
+$ysw-color-meganav-nav-background: stencilColor("ysw_meganav_color_nav_background");
+$ysw-color-meganav-nav-border: stencilColor("ysw_meganav_color_nav_border");
+
+// Navigation Button Colors
+// -----------------------------------------------------------------------------
+$ysw-color-meganav-nav-button-background: stencilColor("ysw_meganav_color_nav_button_background");
+$ysw-color-meganav-nav-button-background-hover: stencilColor("ysw_meganav_color_nav_button_background_hover");
+$ysw-color-meganav-nav-button-background-active: stencilColor("ysw_meganav_color_nav_button_background_active");
+$ysw-color-meganav-nav-button-border: stencilColor("ysw_meganav_color_nav_button_border");
+$ysw-color-meganav-nav-button-text: stencilColor("ysw_meganav_color_nav_button_text");
+$ysw-color-meganav-nav-button-text-hover: stencilColor("ysw_meganav_color_nav_button_text_hover");
+$ysw-color-meganav-nav-button-text-active: stencilColor("ysw_meganav_color_nav_button_text_active");
+
+// Navigation Items Colors
+// -----------------------------------------------------------------------------
+$ysw-color-meganav-nav-item-background: stencilColor("ysw_meganav_color_nav_item_background");
+$ysw-color-meganav-nav-item-background-hover: stencilColor("ysw_meganav_color_nav_item_background_hover");
+$ysw-color-meganav-nav-item-background-active: stencilColor("ysw_meganav_color_nav_item_background_active");
+$ysw-color-meganav-nav-item-border: stencilColor("ysw_meganav_color_nav_item_border");
+$ysw-color-meganav-nav-item-text: stencilColor("ysw_meganav_color_nav_item_text");
+$ysw-color-meganav-nav-item-text-hover: stencilColor("ysw_meganav_color_nav_item_text_hover");
+$ysw-color-meganav-nav-item-text-active: stencilColor("ysw_meganav_color_nav_item_text_active");
+
+// Navigation Dropdown Colors
+// -----------------------------------------------------------------------------
+$ysw-color-meganav-dropdown-background: stencilColor("ysw_meganav_color_dropdown_background");
+$ysw-color-meganav-dropdown-border: stencilColor("ysw_meganav_color_dropdown_border");
+
+// Navigation Dropdown Items Colors
+// -----------------------------------------------------------------------------
+$ysw-color-meganav-dropdown-item-background: stencilColor("ysw_meganav_color_dropdown_item_background");
+$ysw-color-meganav-dropdown-item-background-hover: stencilColor("ysw_meganav_color_dropdown_item_background_hover");
+$ysw-color-meganav-dropdown-item-background-active: stencilColor("ysw_meganav_color_dropdown_item_background_active");
+$ysw-color-meganav-dropdown-item-border: stencilColor("ysw_meganav_color_dropdown_item_border");
+$ysw-color-meganav-dropdown-item-text: stencilColor("ysw_meganav_color_dropdown_item_text");
+$ysw-color-meganav-dropdown-item-text-hover: stencilColor("ysw_meganav_color_dropdown_item_text_hover");
+$ysw-color-meganav-dropdown-item-text-active: stencilColor("ysw_meganav_color_dropdown_item_text_active");
+$ysw-color-meganav-dropdown-item-text-header: stencilColor("ysw_meganav_color_dropdown_item_text_header");
+$ysw-color-meganav-dropdown-item-text-header-link: stencilColor("ysw_meganav_color_dropdown_item_text_header_link");
+$ysw-color-meganav-dropdown-item-text-header-link-hover: stencilColor("ysw_meganav_color_dropdown_item_text_header_link_hover");
+$ysw-color-meganav-dropdown-item-text-header-link-active: stencilColor("ysw_meganav_color_dropdown_item_text_header_link_active");
+
+// Navigation Customize Colors
+// -----------------------------------------------------------------------------
+
+$ysw-color-meganav-customize-background: stencilColor("ysw_meganav_color_customize_background");

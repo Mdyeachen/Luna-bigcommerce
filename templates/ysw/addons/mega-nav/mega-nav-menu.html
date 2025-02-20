@@ -1,0 +1,75 @@
+<div class="ysw-c-mega-nav navPages-container" id="menu">
+    <div class="ysw-c-mega-nav__wrapper" style="background-color: #acacac;">
+        <div class="navPages-quickSearch">
+            {{#if theme_settings.epic_hide_search_navigation}}
+                {{> components/common/quick-search data='false'}}
+            {{/if}}
+
+            <div class="mobile-call-us">
+                <a href="tel:{{settings.phone_number}}">Call Us</a>
+            </div>
+            {{#if customer}}
+            <div class="mobile-my-account">
+                <a href="{{urls.account.index}}">My Account</a>
+            </div>
+            <div class="mobile-my-account">
+                <a href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
+            </div>
+            {{else}}
+                <div class="mobile-my-account">
+                    <a href="{{urls.auth.login}}">Sign in / Register</a>
+                </div>
+            {{/if}}
+        </div>
+        <nav class="ysw-c-mega-nav__navigation navPages">
+            {{#if theme_settings.navigation_design '===' 'custom'}}
+                {{>
+                    ysw/addons/mega-nav/mega-nav-button
+                    position="left"
+                    icon="chevron-down"
+                }}
+            {{/if}}
+
+            <ul class="ysw-nav-item-last ysw-c-mega-nav__list navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max{{/if}}">
+                {{#if theme_settings.navigation_design '===' 'custom'}}
+                    {{#for 0 (subtract theme_settings.ysw_meganav_item_qty 1)}}
+                        {{> ysw/addons/mega-nav/mega-nav-item theme_settings=../theme_settings}}
+                    {{/for}}
+                {{/if}}
+            </ul>
+            
+            <style>
+                
+                .ysw-c-mega-nav__item.navPages-item:last-child {
+                	height: 0;
+                	width: 0;
+                	visibility: hidden;
+                	opacity: 0;
+                }
+                /*Min layout=800px  */
+                @media (min-width: 801px) {
+                  .navPage-subMenu {
+                    width: auto;
+                    left: 50% !important;;
+                    transform: translateX(-50%);
+                    }
+                }
+                    
+                /*Min layout=800px  */
+                @media (max-width:800px) {
+                     ul.ysw-nav-item-last {
+                    	margin-bottom: 300px !important;
+                    }
+                }
+            </style>
+            
+            {{#if theme_settings.navigation_design '===' 'custom'}}
+                {{>
+                    ysw/addons/mega-nav/mega-nav-button
+                    position="right"
+                    icon="chevron-down"
+                }}
+            {{/if}}
+        </nav>
+    </div>
+</div>

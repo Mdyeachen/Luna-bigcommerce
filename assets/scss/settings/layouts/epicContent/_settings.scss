@@ -1,0 +1,91 @@
+$body-text-color:             stencilColor("color-textBase");
+// Top bar
+
+$top-bar-bg:                                 stencilColor("top-bar-backgroung-color");
+$top-bar-text:                               stencilColor("top-bar-text-color");
+$top-bar-text-hover:                         stencilColor("top-bar-text-hover-color");
+$top-bar-border-color:                       stencilColor("top-bar-border-color");
+$top-bar-fontSize-root:                      stencilNumber("top-bar-fontSize-root");
+$topbar-font-family:                     	 stencilFontFamily("topbar-font-family"), Arial, Helvetica, sans-serif;
+$dropdown-menu-bg:							 stencilColor("navUser-dropdown-backgroundColor");
+$dropdown-menu-border:						 stencilColor("navUser-dropdown-borderColor");
+
+$shop-info-bg-color:                         stencilColor("shop-info-bg-color");
+$shop-info-heading-color:                    stencilColor("shop-info-heading-color");
+$shop-info-text-color:                       stencilColor("shop-info-text-color");
+$shop-info-border-color:                     stencilColor("shop-info-border-color");
+
+// Header
+
+$header-bg:                                 stencilColor("header-background-color");
+$header-text-color: 						stencilColor("header-text-color");
+$header-tab-title-color:                    stencilColor("header-tab-title-color");
+$header-tab-text-color:                    	stencilColor("header-tab-text-color");
+$header-tab-border-color:                   stencilColor("header-tab-border-color");
+$header-tab-bg-color:                     	stencilColor("header-tab-bg-color");
+$header-search-border-color:				stencilColor("header-search-border-color");
+
+// Nav bar
+
+$nav-bar-backgroung-color:                   stencilColor("nav-bar-backgroung-color");
+$nav-bar-text-color:                         stencilColor("nav-bar-text-color");
+$nav-bar-text-hover-color:                   stencilColor("cs-navbar-text-hover-color");
+$nav-bar-text-hover-background-color:        stencilColor("nav-bar-text-hover-background-color");
+$epicnavbar-font-family:                     stencilFontFamily("epicnavbar-font-family"), Arial, Helvetica, sans-serif;
+$epicnavbar-fontSize-root:                   stencilNumber("epicnavbar-fontSize-root");
+$epicnavbar-font-weight:                     stencilString("epicnavbar-font-weight");
+
+// Fixed Header Nav
+
+$fixed-header-background-color:              stencilColor("fixed-header-background-color");
+$fixed-header-text-color:                    stencilColor("fixed-header-text-color");
+$fixed-header-text-hover-color:              stencilColor("fixed-header-text-hover-color");
+$fixed-header-text-hover-background-color:   stencilColor("fixed-header-text-hover-background-color");
+$fixed-header-serch-bg-color:                stencilColor("fixed-header-serch-bg-color");
+
+//Carousel
+$epic-slick-arrow-color:             stencilColor("epic-carousel-arrow-color");
+$epic-slick-arrow-prev:              url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='42' viewBox='0 0 24 42'%3E%3Cpath d='M22.4572074 1.00746147l-21 20.02482143 20.9479397 19.9751786' stroke='#{str-replace(#{$epic-slick-arrow-color}, "#", "%23")}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' fill-rule='evenodd' /%3E%3C/svg%3E");
+$epic-slick-arrow-next:              url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='42' viewBox='0 0 24 42'%3E%3Cpath d='M1.45679 1.00746147l21 20.02482143L1.50885 41.0074615' stroke='#{str-replace(#{$epic-slick-arrow-color}, "#", "%23")}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none' fill-rule='evenodd' /%3E%3C/svg%3E");
+$epic-slick-dot-color:               stencilColor("epic-carousel-dot-color");
+$epic-slick-dot-color-active:        stencilColor("epic-carousel-dot-color-active");
+
+// Blog
+$blog-background-color:                  	stencilColor("blog-background-color");
+
+//Product Cards
+$product-image-background-color:         	stencilColor("product-image-background-color");
+
+// Home snippet
+
+$text-color-snippet-1:             stencilColor("text-color-snippet-1");
+$background-color-snippet-1:             stencilColor("background-color-snippet-1");
+$btn-color-snippet-1:             stencilColor("btn-color-snippet-1");
+$btn-hover-color-snippet-1:             stencilColor("btn-hover-color-snippet-1");
+$btn-background-snippet-1:             stencilColor("btn-background-snippet-1");
+$btn-hover-background-snippet-1:         stencilColor("btn-hover-background-snippet-1");
+
+$text-color-snippet-2:             stencilColor("text-color-snippet-2");
+$background-color-snippet-2:             stencilColor("background-color-snippet-2");
+$btn-color-snippet-2:             stencilColor("btn-color-snippet-2");
+$btn-hover-color-snippet-2:             stencilColor("btn-hover-color-snippet-2");
+$btn-background-snippet-2:             stencilColor("btn-background-snippet-2");
+$btn-hover-background-snippet-2:         stencilColor("btn-hover-background-snippet-2");
+
+$text-color-snippet-3:             stencilColor("text-color-snippet-3");
+$background-color-snippet-3:             stencilColor("background-color-snippet-3");
+$btn-color-snippet-3:             stencilColor("btn-color-snippet-3");
+$btn-hover-color-snippet-3:             stencilColor("btn-hover-color-snippet-3");
+$btn-background-snippet-3:             stencilColor("btn-background-snippet-3");
+$btn-hover-background-snippet-3:         stencilColor("btn-hover-background-snippet-3");
+
+$text-color-snippet-4:             stencilColor("text-color-snippet-4");
+$background-color-snippet-4:             stencilColor("background-color-snippet-4");
+$btn-color-snippet-4:             stencilColor("btn-color-snippet-4");
+$btn-hover-color-snippet-4:             stencilColor("btn-hover-color-snippet-4");
+$btn-background-snippet-4:             stencilColor("btn-background-snippet-4");
+$btn-hover-background-snippet-4:         stencilColor("btn-hover-background-snippet-4");
+
+// Help Center Page
+$hc-tab-text:             stencilColor("color-textBase");
+$hc-tab-active:           stencilColor("color-primary");

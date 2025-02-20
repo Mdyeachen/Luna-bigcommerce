@@ -1,0 +1,92 @@
+<ul class="tabs" data-tab>
+    <li class="tab is-active">
+        <a class="tab-title" href="#tab-description">{{lang 'products.description'}}</a>
+    </li>
+    {{#if theme_settings.exta_product_tab '==' true}}
+        <li class="tab">
+            <a class="tab-title" href="#tab-extra-static">Info</a>
+        </li>
+    {{/if}}
+    {{#if product.warranty}}
+        <li class="tab">
+            <a class="tab-title" href="#tab-warranty">{{lang 'products.warranty'}}</a>
+        </li>
+    {{/if}}
+    {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
+        <li class="tab">
+            <a class="tab-title" href="#tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">{{sanitize theme_settings.pdp-custom-fields-tab-label}}</a>
+        </li>
+    {{/all}}
+    {{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
+        <li class="tab">
+            <a class="tab-title productView-reviewTabLink" href="#tab-reviews">{{lang 'products.reviews.header' total=product.reviews.total}}</a>
+        </li>
+    {{/all}}
+
+    <!-- Shopper Approved Review Tab - templates/components/products/description-tabs -->
+    <li class="tab">
+        <a class="tab-title productView-sareviewTabLink" href="#tab-sareviews">Reviews</a>
+    </li>
+    <!-- END Shopper Approved Review Tab - templates/components/products/description-tabs -->
+
+</ul>
+<div class="tabs-contents">
+    <div class="tab-content is-active" id="tab-description">
+        {{{product.description}}}
+    </div>
+    {{#if theme_settings.exta_product_tab '==' true}}
+        <div class="tab-content" id="tab-extra-static">
+           {{> components/custom/extra-product-tab}}
+       </div>
+    {{/if}}
+   {{#if product.warranty}}
+       <div class="tab-content" id="tab-warranty">
+           {{{product.warranty}}}
+       </div>
+   {{/if}}
+   {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
+      <div class="tab-content" id="tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">
+         <dl class="productView-info">
+            {{#each product.custom_fields}}
+               <dt class="productView-info-name">{{name}}:</dt>
+               <dd class="productView-info-value">{{{value}}}</dd>
+            {{/each}}
+         </dl>
+      </div>
+   {{/all}}
+   {{#all settings.show_product_reviews theme_settings.show_product_reviews}}
+       <div class="tab-content" id="tab-reviews">
+           {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+       </div>
+   {{/all}}
+   <!-- Shopper Approved Review Tab - templates/components/products/description-tabs -->
+        <div class="tab-content" id="tab-sareviews">
+            <script type="text/javascript"> var sa_products_count = 3; var sa_date_format = 'F j, Y'; var sa_product = '{{product.id}}'; (function(w,d,t,f,o,s,a){ o = 'shopperapproved'; if (!w[o]) { w[o] = function() { (w[o].arg = w[o].arg || []).push(arguments) }; s=d.createElement(t), a=d.getElementsByTagName(t)[0];s.async=1;s.src=f;a.parentNode.insertBefore(s,a)} })(window,document,'script',"//www.shopperapproved.com/product/11580/"+sa_product+".js"); </script> <div id="shopper_review_page"><div id="review_header"></div><div id="product_page"></div><div id="review_image"><a href="https://www.shopperapproved.com/reviews/bodyjewelry.com/" onclick="var nonwin=navigator.appName!='Microsoft Internet Explorer'?'yes':'no'; var certheight=screen.availHeight-90; window.open(this.href,'shopperapproved','location='+nonwin+',scrollbars=yes,width=620,height='+certheight+',menubar=no,toolbar=no'); return false;" target="_blank" rel="nofollow"></a></div></div>
+            <style>
+                #shopper_review_page #product_page label[for="sa_sort"]  {
+                    display: inline-block;
+                    margin-left: 10px;
+                }
+                #shopper_review_page #review_image .sa_logo {
+                    margin-top: -60px !important;
+                }
+                @media screen and (max-width: 576px) {
+                    #shopper_review_page #product_page .paging .sa_page {
+                       width: 20px;
+                       height: 20px;
+                       font-size: 12px !important;
+                    }
+                    #shopper_review_page #product_page #sa_sort {
+                       font-size: 12px !important;
+                    }
+                    #shopper_review_page #product_page label[for="sa_sort"]  {
+                       display: inline-block;
+                       font-size: 12px;
+                       margin-top: 30px;
+                       margin-left: 0;
+                    }
+                 }
+            </style>
+       </div>
+    <!-- END Shopper Approved Review Tab - templates/components/products/description-tabs -->
+</div>

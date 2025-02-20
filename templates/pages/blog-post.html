@@ -1,0 +1,419 @@
+---
+blog:
+
+    recent_posts:
+        limit: 3
+---
+{{#partial "page"}}
+
+<script type="application/ld+json" defer>
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{blog.post.url}}"
+  },
+  "headline": "{{blog.post.title}}",
+  "image": "{{getImage blog.post.thumbnail 'defaultImage'}}",  
+  "author": {
+    "@type": "Organization",
+    "name": "bodyjewelry.com",
+    "url": "https://bodyjewelry.com"
+  },  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Avi Gidon",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://cdn11.bigcommerce.com/s-yfjn5bpc6d/images/stencil/380x88/bj-logo_1618602987__11455_1672260896.original.png"
+    }
+  }
+}
+</script>
+<section class="page single-blog">
+<div class="single-blog-section">
+    <div class="row justify-content-center">
+        <div class="col-xl-12 col-lg-10">
+            <div class="single-blog-header">
+               <div class="single-blog-breadcrumbs">
+                   {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+                    <div class="lastPost-tags">
+                        <p class="lastPost-date">{{#if blog.post.author}}{{lang 'blog.posted_by' name=blog.post.author}} on {{/if}}{{blog.post.date_published}}</p>
+            
+                    </div>
+               </div>
+                <div class="single-blog-img">
+                        {{> components/common/responsive-img
+        				image=blog.post.thumbnail
+        				fallback_size=theme_settings.blog_size
+        				lazyload=theme_settings.lazyload_mode
+        				}}
+                </div>
+                <div class="single-blog-header-text">
+                    <h1>{{blog.post.title}}</h1>
+                </div>
+            </div>
+            <div class="single-blog-content">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12">
+                            <div class="single-blog-text">
+                                {{{blog.post.body}}}
+                                
+                            </div>
+                            <div class="social-section">
+                                Share: {{>components/common/share url=post.url}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+<!--  ===Tags Section===  -->
+<div class="tag-section">
+    <div class="row justify-content-center">
+        <div class="col-xl-12 col-lg-10">
+            <div class="post-heading tag-heading">
+                <h3>Top Label</h3>
+            </div>
+            <div class="slider-tags">
+                <div class="slide-tag-box">
+                    <div class="tag-box">
+                        <h3><a href="https://bodyjewelry.com/blog/tag/body+jewelry">Body Jewelry</a></h3>
+                    </div>
+                </div>
+                <div class="slide-tag-box">
+                    <div class="tag-box">
+                        <h3><a href="https://bodyjewelry.com/blog/tag/nose">Nose</a></h3>
+                    </div>
+                </div>
+                <div class="slide-tag-box">
+                    <div class="tag-box">
+                        <h3><a href="https://bodyjewelry.com/blog/tag/septum">Septum</a></h3>
+                    </div>
+                </div>
+                <div class="slide-tag-box">
+                    <div class="tag-box">
+                        <h3><a href="https://bodyjewelry.com/blog/tag/lip">Lip</a></h3>
+                    </div>
+                </div>
+                <div class="slide-tag-box">
+                    <div class="tag-box">
+                        <h3><a href="https://bodyjewelry.com/blog/tag/nipple">Nipple</a></h3>
+                    </div>
+                </div>
+                <div class="slide-tag-box">
+                    <div class="tag-box">
+                        <h3><a href="https://bodyjewelry.com/blog/tag/eyebrow">Eyebrow</a></h3>
+                    </div>
+                </div>
+                <div class="slide-tag-box">
+                    <div class="tag-box">
+                        <h3><a href="https://bodyjewelry.com/blog/tag/belly">Belly</a></h3>
+                    </div>
+                </div>
+                <div class="slide-tag-box">
+                    <div class="tag-box">
+                        <h3><a href="https://bodyjewelry.com/blog/tag/gauge">Gauge</a></h3>
+                    </div>
+                </div>
+                <div class="slide-tag-box">
+                    <div class="tag-box">
+                        <h3><a href="https://bodyjewelry.com/blog/tag/tongue">Tongue</a></h3>
+                    </div>
+                </div>
+                <div class="slide-tag-box">
+                    <div class="tag-box">
+                        <h3><a href="https://bodyjewelry.com/blog/tag/barbell">Barbell</a></h3>
+                    </div>
+                </div>
+                <div class="slide-tag-box">
+                    <div class="tag-box">
+                        <h3><a href="https://bodyjewelry.com/blog/tag/hoop">Hoop</a></h3>
+                    </div>
+                </div>
+                <div class="slide-tag-box">
+                    <div class="tag-box">
+                        <h3><a href="https://bodyjewelry.com/blog/tag/earrings">Earrings</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+    
+<!--  ===Last Post Section===  -->
+<div class="latest-posts">
+        <div class="row justify-content-center">
+        <div class="col-xl-12 col-lg-10">
+            <div class="post-heading">
+                <h3>Latest Posts</h3>
+            </div>
+            <div class="lastPost-items">
+            {{#each blog.recent_posts}}
+                {{> components/blog/post post=this}}
+            {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<style>
+
+.single-blog #main-content {
+  margin: 0 !important;
+}
+.single-blog #main-content {
+	margin: 0 !important;
+}
+
+.single-blog .single-blog-breadcrumbs {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  z-index: 2;
+  color: #fff;
+}
+.single-blog .single-blog-breadcrumbs a {
+  color: #fff !important;
+  font-size: 12px;
+  font-weight: 500;
+}
+/*----------=====Blog Single page ====-------*/
+.single-blog h1,
+.single-blog h2,
+.single-blog h3,
+.single-blog h4,
+.single-blog h5,
+.single-blog h6 {
+    margin: 0;
+}
+
+.single-blog a {
+    text-decoration: none;
+    color: #000;
+}
+
+.single-blog a:hover {
+    color: #424242;
+}
+
+.single-blog img {
+    width: 100%;
+    height: 100%;
+}
+.single-blog ol.breadcrumbs{
+    text-align: left !important;
+    margin-bottom: 0;
+}
+.single-blog .blog-tag a {
+    background: #488bc1;
+    color: #fff;
+    padding: 1px 5px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .2s;
+    display: inline-block;
+}
+
+.single-blog .single-blog-header {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    aspect-ratio: 3.2/ 1;
+}
+
+.single-blog .single-blog-header::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    content: "";
+    z-index: 0;
+    opacity: .2;
+}
+
+.single-blog .single-blog-img img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+.single-blog .single-blog-img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.single-blog .single-blog-header-text {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    color: #fff;
+}
+
+.single-blog .single-blog-header-text h1 {
+	font-size: 44px;
+	line-height: 46px;
+	font-weight: 800;
+	text-transform: capitalize;
+	width: 100%;
+	color: #fff;
+	max-width: 805px;
+}
+.single-blog #faq {
+	border-top: 2px solid black;
+	padding-top: 30px;
+}
+.single-blog .single-blog-text {
+    font-size: 16px;
+    line-height: 29px;
+    font-weight: 500;
+}
+.single-blog .single-blog-text h1, .single-blog-text h2, .single-blog-text h3 {
+	margin-bottom: 1.5rem;
+}
+.single-blog .single-blog-text a {
+  font-weight: 600;
+  color: #488bc1;
+}
+.single-blog .single-blog-content {
+    padding-top: 35px;
+}
+@media only screen and (max-width: 768px) {
+    .single-blog .single-blog-header-text h1 {
+        font-size: 28px;
+        line-height: 30px;
+    }
+}
+@media only screen and (max-width: 576px) {
+    .single-blog .single-blog-header{
+        aspect-ratio: 2/ 1;
+    }
+        
+    .single-blog .single-blog-header-text h1 {
+        font-size: 26px;
+        line-height: 30px;
+    }
+        
+    .single-blog ol.breadcrumbs {
+    	display: block;
+    }
+}
+@media only screen and (max-width: 420px) {
+    .single-blog .single-blog-header{
+        aspect-ratio: 1.5/ 1;
+    }
+        
+    .single-blog .single-blog-header-text h1 {
+        font-size: 26px;
+        line-height: 30px;
+    }
+        
+   .single-blog ol.breadcrumbs {
+    	display: block;
+    }
+}
+/*----------=====Blog Single page End====-------*/
+/*------- Tags Section -----------*/
+.single-blog #allBlogs {
+	-webkit-line-clamp: 1;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+        .single-blog .slider-tags {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 5px;
+        }
+
+        .single-blog .slide-tag-box {
+            grid-column: auto/ span 2;
+        }
+
+        .single-blog .slide-tag-box {
+            background: #fafafa;
+            transition: .2s;
+        }
+
+        .single-blog .slide-tag-box:first-child:hover,
+        .single-blog .slide-tag-box:last-child:hover {
+            background: #dc7631;
+        }
+
+        .single-blog .slide-tag-box:nth-child(2):hover,
+        .single-blog .slide-tag-box:nth-child(11):hover {
+            background: #20cead;
+        }
+
+        .single-blog .slide-tag-box:nth-child(3):hover,
+        .single-blog .slide-tag-box:nth-child(10):hover {
+            background: #89e564;
+        }
+
+        .single-blog .slide-tag-box:nth-child(4):hover,
+        .single-blog .slide-tag-box:nth-child(9):hover {
+            background: #1594f0;
+        }
+
+        .single-blog .slide-tag-box:nth-child(5):hover,
+        .single-blog .slide-tag-box:nth-child(8):hover {
+            background: #d08487;
+        }
+
+        .slide-tag-box:nth-child(6):hover,
+        .slide-tag-box:nth-child(7):hover {
+            background: #e5577d;
+        }
+
+        .single-blog .slide-tag-box:hover .tag-box h3 a {
+            color: #fff;
+        }
+
+        .single-blog .tag-section {
+            padding: 20px 0 50px;
+        }
+
+        .single-blog .tag-box h3 {
+            font-size: 18px;
+            font-weight: 800;
+            padding: 20px;
+            border: 1px solid #e9ecef;
+            transition: .3s;
+            height: 85px;
+            min-height: 85px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .single-blog .tag-box h3 a {
+            transition: .2s;
+        }
+
+        @media only screen and (max-width:767px) {
+            .single-blog .slider-tags {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        @media only screen and (max-width:480px) {
+            .single-blog .slide-tag-box {
+                grid-column: auto/ span 3;
+            }
+        }
+/*------- Tags Section End-----------*/
+</style>
+{{/partial}}
+{{> layout/base}}

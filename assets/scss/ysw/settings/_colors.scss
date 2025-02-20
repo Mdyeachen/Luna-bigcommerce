@@ -1,0 +1,56 @@
+// Colors
+// -----------------------------------------------------------------------------
+
+$ysw-color-primary: stencilColor("color-primary");
+$ysw-color-primary--dark: stencilColor("color-primaryDark");
+$ysw-color-primary--darker: stencilColor("color-primaryDarker");
+$ysw-color-primary--light: stencilColor("color-primaryLight");
+$ysw-color-primary--lighter: stencilColor("color-primaryLighter");
+
+$ysw-color-secondary: stencilColor("color-secondary");
+$ysw-color-secondary--dark: stencilColor("color-secondaryDark");
+$ysw-color-secondary--darker: stencilColor("color-secondaryDarker");
+$ysw-color-secondary--light: stencilColor("color-secondaryLight");
+$ysw-color-secondary--lighter: stencilColor("color-secondaryLighter");
+
+// Navigation Colors
+
+$ysw-color-nav-pages: stencilColor("navPages-color");
+$ysw-color-nav-pages--hover: stencilColor("navPages-color-hover");
+$ysw-color-nav-pages--background: stencilColor("navPages-backgroundColor");
+$ysw-color-nav-pages--submenu: stencilColor("navPages-subMenu-backgroundColor");
+$ysw-color-nav-pages--submenu-sep: stencilColor("navPages-subMenu-separatorColor");
+
+$ysw-color-white: stencilColor("color-white");
+$ysw-color-black: stencilColor("color-black");
+$ysw-color-gray: stencilColor("color-grey");
+$ysw-color-gray--light: stencilColor("color-greyLight");
+$ysw-color-gray--dark: stencilColor("color-greyDark");
+
+// Text Colors
+
+$ysw-color-text-base: stencilColor("color-textBase");
+$ysw-color-text-base--hover: stencilColor("color-textBase--hover");
+$ysw-color-text-base--active: stencilColor("color-textBase--active");
+
+$ysw-color-text-secondary: stencilColor("color-textSecondary");
+$ysw-color-text-secondary--hover: stencilColor("color-textSecondary--hover");
+$ysw-color-text-secondary--active: stencilColor("color-textSecondary--active");
+
+$ysw-color-text-link: stencilColor("color-textLink");
+$ysw-color-text-link--hover: stencilColor("color-textLink--hover");
+$ysw-color-text-link--active: stencilColor("color-textLink--active");
+
+$ysw-color-text-heading: stencilColor("color-textHeading");
+
+$ysw-color-alert-error: stencilColor("color-error");
+$ysw-color-alert-error--light: stencilColor("color-errorLight");
+$ysw-color-alert-info: stencilColor("color-info");
+$ysw-color-alert-info--light: stencilColor("color-infoLight");
+$ysw-color-alert-success: stencilColor("color-success");
+$ysw-color-alert-success--light: stencilColor("color-successLight");
+$ysw-color-alert-warning: stencilColor("color-warning");
+$ysw-color-alert-warning--light: stencilColor("color-warningLight");
+
+$ysw-color-sticky-product-shadow: rgba(149, 157, 165, 0.2);
+$ysw-color-accordeon-border: rgba(51, 63, 80, 0.15);

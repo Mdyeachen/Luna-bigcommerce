@@ -1,0 +1,51 @@
+<nav>
+    <h2 class="sidebarBlock-heading">
+        Shop By Category
+    </h2>
+
+    <ul class="nav-cats">
+        {{#each categories}}
+        <li class="nav-cats__item nav-cats__item--level-0 nav-cats__item--{{toLowerCase (hyphenate name)}}">
+            <a href="{{url}}">
+                {{name}}
+            </a>
+        </li>
+        <li class="nav-cats__item nav-cats__item--{{id}}">
+            {{#if children}}
+            <ul class="nav-cats__level nav-cats__level--1">
+                {{#each children}}
+                <li class="nav-cats__level-item nav-cats__level-item--1">
+                    <a href="{{url}}">
+                        {{name}}
+                    </a>
+
+                    {{#if children}}
+                    <ul class="nav-cats__level nav-cats__level--2">
+                        {{#each children}}
+                        <li class="nav-cats__level-item nav-cats__level-item--2">
+                            <a href="{{url}}">
+                                {{name}} ({{count}})
+                            </a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    {{/if}}
+                </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+
+    {{#if category.faceted_search_enabled}}
+        {{> components/faceted-search/index category}}
+    {{else}}
+        {{> components/category/shop-by-price shop_by_price=category.shop_by_price category_url=category.url}}
+    {{/if}}
+</nav>
+
+<button type="button" class="button show-categories">
+    <span class="show">{{lang 'ysw.showCategories'}}</span>
+    <span class="hide">{{lang 'ysw.hideCategories'}}</span>
+</button>

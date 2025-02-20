@@ -1,0 +1,183 @@
+{{#if theme_settings.display-snippets-carousel}}
+<div
+    class="content-snippet-carousel"
+    data-slick='{
+        "dots": false,
+        "slidesToShow": 4,
+        "slidesToScroll": 1,
+        "autoplay": true,
+        "lazyLoad": "anticipated",
+        "slide": ".content-snippet-carousel__item",
+        "prevArrow": ".js-hero-prev-arrow",
+        "nextArrow": ".js-hero-next-arrow",
+        "responsive": [
+            {
+                "breakpoint": 992,
+                "settings": {
+                    "slidesToScroll": 1,
+                    "slidesToShow": 3
+                }
+            },
+            {
+                "breakpoint": 768,
+                "settings": {
+                    "slidesToScroll": 1,
+                    "slidesToShow": 2
+                }
+            },
+            {
+                "breakpoint": 576,
+                "settings": {
+                    "slidesToScroll": 1,
+                    "slidesToShow": 1
+                }
+            }
+        ]
+    }'
+>
+    <button
+        aria-label="{{lang 'carousel.arrowAriaLabel'}}"
+        class="js-hero-prev-arrow slick-prev slick-arrow"
+    ></button>
+
+    {{#if theme_settings.background-image-snippet-1 "!==" ""}}
+        <div class="content-snippet-carousel__item content-snippet-carousel__item--1">
+            <a
+                href="{{theme_settings.btn-url-snippet-1}}"
+                title="{{theme_settings.btn-text-snippet-1}}"
+            >
+                <img
+                    src="{{getImageManagerImage theme_settings.background-image-snippet-1}}"
+                    alt="{{theme_settings.btn-text-snippet-1}}"
+                />
+            </a>
+        </div>
+    {{/if}}
+
+    {{#if theme_settings.background-image-snippet-2 "!==" ""}}
+        <div class="content-snippet-carousel__item content-snippet-carousel__item--2">
+            <a
+                href="{{theme_settings.btn-url-snippet-2}}"
+                title="{{theme_settings.btn-text-snippet-2}}"
+            >
+                <img
+                    src="{{getImageManagerImage theme_settings.background-image-snippet-2}}"
+                    alt="{{theme_settings.btn-text-snippet-2}}"
+                />
+            </a>
+        </div>
+    {{/if}}
+
+    {{#if theme_settings.background-image-snippet-3 "!==" ""}}
+        <div class="content-snippet-carousel__item content-snippet-carousel__item--3">
+            <a
+                href="{{theme_settings.btn-url-snippet-3}}"
+                title="{{theme_settings.btn-text-snippet-3}}"
+            >
+                <img
+                    src="{{getImageManagerImage theme_settings.background-image-snippet-3}}"
+                    alt="{{theme_settings.btn-text-snippet-3}}"
+                />
+            </a>
+        </div>
+    {{/if}}
+
+    {{#if theme_settings.background-image-snippet-4 "!==" ""}}
+        <div class="content-snippet-carousel__item content-snippet-carousel__item--4">
+            <a
+                href="{{theme_settings.btn-url-snippet-4}}"
+                title="{{theme_settings.btn-text-snippet-4}}"
+            >
+                <img
+                    src="{{getImageManagerImage theme_settings.background-image-snippet-4}}"
+                    alt="{{theme_settings.btn-text-snippet-4}}"
+                />
+            </a>
+        </div>
+    {{/if}}
+
+    {{#if theme_settings.background-image-snippet-5 "!==" ""}}
+        <div class="content-snippet-carousel__item content-snippet-carousel__item--5">
+            <a
+                href="{{theme_settings.btn-url-snippet-5}}"
+                title="{{theme_settings.btn-text-snippet-5}}"
+            >
+                <img
+                    src="{{getImageManagerImage theme_settings.background-image-snippet-5}}"
+                    alt="{{theme_settings.btn-text-snippet-5}}"
+                />
+            </a>
+        </div>
+    {{/if}}
+
+    {{#if theme_settings.background-image-snippet-6 "!==" ""}}
+        <div class="content-snippet-carousel__item content-snippet-carousel__item--6">
+            <a
+                href="{{theme_settings.btn-url-snippet-6}}"
+                title="{{theme_settings.btn-text-snippet-6}}"
+            >
+                <img
+                    src="{{getImageManagerImage theme_settings.background-image-snippet-6}}"
+                    alt="{{theme_settings.btn-text-snippet-6}}"
+                />
+            </a>
+        </div>
+    {{/if}}
+
+    {{#if theme_settings.background-image-snippet-7 "!==" ""}}
+        <div class="content-snippet-carousel__item content-snippet-carousel__item--7">
+            <a
+                href="{{theme_settings.btn-url-snippet-7}}"
+                title="{{theme_settings.btn-text-snippet-7}}"
+            >
+                <img
+                    src="{{getImageManagerImage theme_settings.background-image-snippet-7}}"
+                    alt="{{theme_settings.btn-text-snippet-7}}"
+                />
+            </a>
+        </div>
+    {{/if}}
+
+    {{#if theme_settings.background-image-snippet-8 "!==" ""}}
+        <div class="content-snippet-carousel__item content-snippet-carousel__item--8">
+            <a
+                href="{{theme_settings.btn-url-snippet-8}}"
+                title="{{theme_settings.btn-text-snippet-8}}"
+            >
+                <img
+                    src="{{getImageManagerImage theme_settings.background-image-snippet-8}}"
+                    alt="{{theme_settings.btn-text-snippet-8}}"
+                />
+            </a>
+        </div>
+    {{/if}}
+
+    <button
+        aria-label="{{lang 'carousel.arrowAriaLabel'}}"
+        class="js-hero-next-arrow slick-next slick-arrow"
+    ></button>
+</div>
+{{else}}
+<div class="row no-gutters">
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="snippetContainer snippetContainer1">
+            {{> components/custom/contentSnippet/home-content-snippet-1}}
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="snippetContainer snippetContainer2">
+            {{> components/custom/contentSnippet/home-content-snippet-2}}
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="snippetContainer snippetContainer3">
+            {{> components/custom/contentSnippet/home-content-snippet-3}}
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-3">
+        <div class="snippetContainer snippetContainer4">
+            {{> components/custom/contentSnippet/home-content-snippet-4}}
+        </div>
+    </div>
+</div>
+{{/if}}

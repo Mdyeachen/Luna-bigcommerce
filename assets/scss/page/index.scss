@@ -1,0 +1,63 @@
+.reseller-form{
+
+    form{
+
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        
+        @media (min-width: 64rem){
+            max-width: 64rem;
+            gap: 1rem;
+            flex-direction: row;
+            justify-content: center;
+            margin: auto;
+
+            div{
+                padding: 0 !important;
+            }
+        }
+        
+        div{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            width: calc(100% - 2.5rem);
+            max-width: 28rem;
+            padding: .4rem 0;
+
+            &.submit input[type="submit"]{
+                margin-top: 1.5rem;
+                font-size: 1.2rem;
+                font-weight: 400;
+                text-transform: uppercase;
+                color: hsl(0, 0%, 100%);
+                background-color: hsl(202, 70%, 48%);
+                border-color: hsl(202, 70%, 48%);
+                transition: all .3s ease-in-out;
+
+                &:hover{
+                    color: hsl(0, 0%, 11%);
+                    background-color: hsl(0, 0%, 100%);
+                    border-color: hsl(0, 0%, 44%);;
+                }
+            }
+        }
+
+        label{
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding-left: .5rem;
+            padding-bottom: .3rem;
+        }
+
+        input, select{
+            width: 100%;
+            padding: .5rem 1rem;
+            border: 2px solid hsl(0, 0%, 44%);
+            border-radius: .5rem;
+        }
+    }
+}

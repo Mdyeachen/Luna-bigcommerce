@@ -1,0 +1,144 @@
+<div class="ysw-c-description-tabs">
+    <details class="ysw-c-accordion" open="">
+        <summary class="ysw-c-accordion__title">{{lang 'products.description'}}</summary>
+        <div class="ysw-c-accordion__panel">
+            <div class="ysw-c-accordion__panel-content">
+                {{{product.description}}}
+            </div>
+        </div>
+    </details>
+    {{#if theme_settings.exta_product_tab '==' true}}
+    <details class="ysw-c-accordion" open="">
+        <summary class="ysw-c-accordion__title">Info</summary>
+        <div class="ysw-c-accordion__panel">
+            <div class="ysw-c-accordion__panel-content">
+                {{> components/custom/extra-product-tab}}
+            </div>
+        </div>
+    </details>
+    {{/if}}
+    {{#if product.warranty}}
+    <details class="ysw-c-accordion">
+        <summary class="ysw-c-accordion__title">{{lang 'products.warranty'}}</summary>
+        <div class="ysw-c-accordion__panel">
+            <div class="ysw-c-accordion__panel-content">
+                {{{product.warranty}}}
+            </div>
+        </div>
+    </details>
+    {{/if}}
+    {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
+    <details class="ysw-c-accordion">
+        <summary class="ysw-c-accordion__title">{{{sanitize theme_settings.pdp-custom-fields-tab-label}}}</summary>
+        <div class="ysw-c-accordion__panel">
+            <div class="ysw-c-accordion__panel-content">
+                <dl class="productView-info">
+                    {{#each product.custom_fields}}
+                        <dt class="productView-info-name">{{name}}:</dt>
+                        <dd class="productView-info-value">{{{value}}}</dd>
+                    {{/each}}
+                </dl>
+            </div>
+        </div>
+    </details>
+    {{/all}}
+    <details class="ysw-c-accordion">
+        <summary class="ysw-c-accordion__title">Shipping Information</summary>
+        <div class="ysw-c-accordion__panel">
+            <div class="ysw-c-accordion__panel-content review-des" style="padding: 0 3px;">
+                <div style="text-align: left;" align="center">
+                <table class="table tg product-tab-table">
+                <tbody>
+                <tr>
+                <th class="tg-hgcj">Shipping Method</th>
+                <th class="tg-amwm">Handling Time</th>
+                <th class="tg-amwm">Shipping Time </th>
+                <th class="tg-amwm">Price</th></tr>
+                <tr>
+                <td class="tg-0vih">USPS First Class</td>
+                <td class="tg-dzk6">2-3 Business Days</td>
+                <td class="tg-dzk6">3-7 Business Days</td>
+                <td class="tg-dzk6">$4.75</td>
+                </tr>
+                <tr>
+                <td class="tg-amwm">USPS Priority Mail</td>
+                <td class="tg-baqh">2-3 Business Days</td>
+                <td class="tg-baqh">2-4 Business Days</td>
+                <td class="tg-baqh">$9.75</td>
+                </tr>
+                <tr>
+                <td class="tg-amwm">USPS Mail Express</td>
+                <td class="tg-baqh">2-3 Business Days</td>
+                <td class="tg-baqh">1-2 Business Days (Express)</td>
+                <td class="tg-baqh">$29.75</td>
+                </tr>
+                <tr>
+                <td class="tg-amwm">UPS International Express</td>
+                <td class="tg-baqh">2-3 Business Days</td>
+                <td class="tg-baqh">3-5 Business Days</td>
+                <td class="tg-baqh">$19.95</td>
+                </tr>
+                <tr>
+                <td class="tg-amwm">International Mail Ground</td>
+                <td class="tg-baqh">2-3 Business Days</td>
+                <td class="tg-baqh">7-10 Business Day</td>
+                <td class="tg-baqh">$6.75</td>
+                </tr>
+                </tbody>
+                </table>
+                </div>
+                <style>
+                .ysw-c-accordion__panel-content h1,
+                .ysw-c-accordion__panel-content h2,
+                .ysw-c-accordion__panel-content h3{
+                	font-size: 18px;
+                    margin-top: 10px;
+                }
+                .product-tab-table.table{
+                    margin-top: 10px;
+                }
+                
+                .product-tab-table.table tr td, .product-tab-table.table tr th {
+                    padding: 5px 0px !important;
+                    text-align: center;
+                	border: 1px solid #e1e1e1;
+                }
+                @media (min-width:991px) {
+                    .product-tab-table.table tr td, .product-tab-table.table tr th {
+                	padding: 10px 10px !important;
+                	text-align: left;
+                    }
+                    
+                }
+                @media (max-width:800px) {
+                    .product-tab-table.table tr td, .product-tab-table.table tr th {
+                	padding: 10px 10px !important;
+                	text-align: left;
+                    }
+                    
+                }
+                @media (max-width:450px) {
+                    .product-tab-table.table tr td, .product-tab-table.table tr th {
+                	padding: 5px 0px !important;
+                    }
+                    
+                }
+                </style>
+            </div>
+        </div>
+    </details>
+    <details class="ysw-c-accordion">
+        <summary class="ysw-c-accordion__title">Warranty Information</summary>
+        <div class="ysw-c-accordion__panel">
+            <div class="ysw-c-accordion__panel-content">
+                <p>3 & 4-Year Warranty</p>
+                <p>Whether you have a 3-year or 4-year warranty, you are guaranteed to have your jewelry replaced at no extra cost. Beginning from the date of purchase, replacement is guaranteed if your jewelry is damaged or broken.</p>
+        
+                <p>To make use of your warranty, please notify us via email at <a href="mailto:support@bodyjewelry.com">support@bodyjewelry.com</a> or call us toll-free at 1-888-242-6166.</p>
+        
+                <p>For more details, <a href="https://bodyjewelry.com/warranty-policy/">click here</a> to view our full warranty policy.</p>
+                <p><b>Please note: Shipping costs are not covered by the warranty.</b></p>
+            </div>
+        </div>
+    </details>
+</div>

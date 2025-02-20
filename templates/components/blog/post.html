@@ -1,0 +1,202 @@
+<div class="lastPost-item">
+    <div class="lastPost-img ">
+        {{#if post.tags}}
+            <div id="allBlogs" class="lastPost-tag">
+                {{#each post.tags}}
+                    <div class="blog-tag"><a href="{{url}}">#{{name}}</a></div>
+                {{/each}}
+            </div>
+        {{/if}}
+        <a href="{{url}}">
+            {{> components/common/responsive-img
+            image=post.thumbnail
+            fallback_size=theme_settings.blog_size
+            lazyload=theme_settings.lazyload_mode
+            }}
+        </a>
+    </div>
+    <div class="lastPost-cont">
+        <div class="lastPost-tags">
+            <p class="lastPost-date">{{#if post.author}}{{lang 'blog.posted_by' name=post.author}} on {{/if}}{{post.date_published}}</p>
+        </div>
+        <div class="lastPost-title">
+            <h2><a href="{{url}}">{{post.title}}</a></h2>
+            <p>
+                {{#if post.body}}
+                    {{{post.body}}}
+                {{else}}
+                    {{{post.summary}}}
+
+                {{/if}}
+            </p>
+            <div class="lastPost-btn blog-tag"><a href="{{url}}">Read More</a></div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+ /*------- Last Post Section -----------*/
+
+ .aside-trand .post-heading h3 {
+     margin: 0px;
+ }
+
+ .post-heading h3 {
+     font-size: 16px;
+     line-height: 18px;
+     font-weight: 800;
+     text-transform: capitalize;
+     border-top: 3px solid black;
+     padding: 20px 0;
+ }
+
+ .lastPost-items {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     grid-auto-flow: dense;
+     gap: 5px;
+ }
+
+ .lastPost-item {
+     grid-column: auto / span 1;
+     margin-bottom: 30px
+ }
+
+
+
+ .lastPost-img {
+     max-height: 300px;
+     height: 300px;
+     position: relative;
+ }
+
+ .lastPost-tag {
+     position: absolute;
+     top: 5%;
+     left: 5%;
+     z-index: 1;
+ }
+
+ .lastPost-img img {
+     height: 100%;
+     width: 100%;
+     object-fit: cover;
+ }
+
+ .lastPost-tags p {
+     margin: 0;
+ }
+
+ .lastPost-cont {
+     padding: 1.5rem;
+ }
+
+ .lastPost-title a {
+     color: #000;
+     text-decoration: none;
+     font-weight: 800;
+     font-size: 24px;
+     text-transform: capitalize;
+     transition: .2s;
+     line-height: 32px;
+     display: inline-block;
+ }
+
+ .lastPost-title a:hover {
+     color: #424242;
+ }
+
+.lastPost-title p {
+	font-size: 16px;
+	line-height: 24px;
+	text-transform: capitalize;
+	color: #313131;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+
+ .lastPost-btn a {
+     padding: 5px 10px;
+     font-size: 16px;
+     text-transform: uppercase;
+     font-weight: 600;
+ }
+
+ .aside-search {
+     background: #FAFAFA;
+     padding: 20px;
+     margin-bottom: 50px;
+     border: 1px solid #e9ecef;
+ }
+
+ .aside-search input,
+ .aside-search select {
+     display: block;
+     width: 100%;
+     padding: 24px 15px;
+     border: 1px solid #e9ecef;
+     background: #FAFAFA;
+     -webkit-appearance: none;
+     outline: 0;
+ }
+
+ .aside-search select {
+     margin-bottom: 10px;
+ }
+
+ .aside-search input:nth-child(2) {
+     background: black;
+     color: #fff;
+     font-size: 14px;
+     line-height: 21px;
+     font-weight: 800;
+     text-transform: uppercase;
+     transition: .2s;
+ }
+
+ .aside-search input:nth-child(2):hover {
+     background: #00abff;
+ }
+
+
+ .profile-box {
+     text-align: center;
+ }
+
+ .profile-detials h6,
+ .profile-detials a {
+     font-size: 16px;
+     font-weight: 800;
+     text-transform: capitalize;
+     color: #000;
+     text-decoration: none;
+     transition: .3s;
+ }
+
+ .profile-detials p {
+     font-size: 16px;
+     line-height: 24px;
+     font-weight: 300;
+ }
+
+ .profile-detials h6:hover,
+ .profile-detials a:hover {
+     color: #A9A9A9;
+ }
+
+ @media only screen and (max-width:767px) {
+     .lastPost-item {
+         grid-column: auto / span 2;
+     }
+ }
+
+ @media only screen and (max-width:1199px) {
+     .lastPost-items {
+         grid-template-columns: repeat(2, 1fr);
+     }
+ }
+
+</style>

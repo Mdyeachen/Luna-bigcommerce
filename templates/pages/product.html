@@ -1,0 +1,104 @@
+---
+product:
+    videos:
+        limit: {{theme_settings.productpage_videos_count}}
+    reviews:
+        limit: {{theme_settings.productpage_reviews_count}}
+    related_products:
+        limit: {{theme_settings.productpage_related_products_count}}
+    similar_by_views:
+        limit: {{theme_settings.productpage_similar_by_views_count}}
+---
+{{inject "productId" product.id}}
+{{inject "zoomSize" theme_settings.zoom_size}}
+{{inject "productSize" theme_settings.product_size}}
+
+{{#partial "page"}}
+
+        <script type="application/ld+json">
+    	// product BreadcrumbList schema 
+        {
+          "@context": "https://schema.org",
+          "@id": "#product",
+          "@type": "IndividualProduct",
+          "additionalType": "{{product.url}}",
+          "description": "{{product.description}}",
+          "name": "{{ product.title }}",
+    	  "sku": "{{product.sku}}",
+    	  "image": "{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}",
+    	  "brand": {
+    		"@type": "Brand",
+    		"name": "Luxe Modz Body Jewelry"
+    	  }
+        }
+    	// product BreadcrumbList schema finished
+        </script>
+
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+    {{#each product.shipping_messages}}
+        {{> components/common/alert/alert-info message}}
+    {{/each}}
+    {{#if theme_settings.add-three-product-process}}
+        <div class="tab-process">
+    {{/if}}
+        <div itemscope itemtype="http://schema.org/Product">
+            {{#if theme_settings.add-three-product-process}}
+                {{> components/epicContent/productTab/product-view schema=true}}
+            {{else}}
+                {{#if theme_settings.show_product_images_popup}}
+                    {{> components/epicContent/products/product-view-gallery schema=true  }}
+                {{else}}
+                    {{> components/products/product-view schema=true  }}
+                {{/if}}
+            {{/if}}
+
+        {{{region name="product_below_content"}}}
+
+        {{#if product.videos.list.length}}
+            {{> components/products/videos product.videos}}
+        {{/if}}
+
+        {{#all settings.show_product_reviews theme_settings.show_product_reviews (if theme_settings.show_product_details_tabs '!==' true)}}
+            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+        {{/all}}
+
+            {{#if theme_settings.add-three-product-process}}
+            <div class="processView-tab">
+                {{> components/products/tabs}}
+            </div>
+            {{else}}
+                {{> components/products/tabs}}
+            {{/if}}
+        </div>
+    {{#if theme_settings.add-three-product-process}}
+        </div>
+    {{/if}}
+
+    {{> ysw/components/products/sticky-product}}
+
+    <script>
+    if (typeof gtag === 'function') {
+        gtag('event', 'view_item', {
+            'send_to': 'AW-1068596292',
+            'value': '{{product.price.without_tax.value}}',
+            'items': [{
+                'id': '{{ product.id }}',
+                'google_business_vertical': 'retail'
+            }]
+        });
+    }
+    </script>
+
+    <script>
+    window.uetq = window.uetq || [];
+    window.uetq.push('event', '', {
+        'ecomm_prodid': '{{product.id}}',
+        'ecomm_pagetype': 'product',
+        'ecomm_totalvalue': '{{product.price.without_tax.value}}'
+    });
+    /* The ecomm_prodid parameter is the product ID of the product on the page. It is unique for each item and must match either the id or item_group_id attribute in your product feed. Numeric and alphanumeric (including hyphens) characters only, with a maximum of 50 characters. */
+    /* The ecomm_pagetype parameter identifies the type of page the user has visited. Valid options: home, searchresults, category, product, cart, purchase, other. */
+    </script>
+{{/partial}}
+{{> layout/base}}

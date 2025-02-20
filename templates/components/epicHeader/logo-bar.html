@@ -1,0 +1,280 @@
+<div class="container-fluid">
+    <div class="row align-items-center">
+        {{#if theme_settings.logo-position '==' 'left'}}
+            <div class="col-lg">
+                {{#if page_type '===' 'default'}}
+                    <div class="site-logo header-logo--left">
+                        {{> components/common/store-logo}}
+                        <!--<a href = "#" class="header-logo__link luxeModz">
+                            <img src="https://cdn11.bigcommerce.com/s-m5ct3euedw/images/stencil/original/image-manager/luxemodz.png" alt="Luxe Modz" style="max-height: 65px;">
+                        </a> -->
+                    </div>
+                {{else}}
+                    <div class="site-logo header-logo--left">
+                        {{> components/common/store-logo}}
+                    </div>
+                {{/if}}
+            </div>
+            <div class="col-lg">
+                <div>{{> components/epicHeader/header-tabs}}</div>
+                
+                {{#if theme_settings.epic_hide_search_navigation}}
+                    {{> components/epicHeader/search}}
+                {{/if}}
+            </div>
+            <div class="col-lg">
+                    <ul class="navUser-section top-bar-menu topBar-custom">
+                        <!--<li>
+                            <a href="https://bodyjewelry.com/luxe-modz/">
+                                <img src="https://cdn11.bigcommerce.com/s-m5ct3euedw/images/stencil/original/image-manager/luxe-logo.jpg" alt="luxe modz Body Jewlery" height="30" width="30"><span class="topBar-icon-title">Luxe Modz</span>
+                            </a>
+                        </li>-->
+                        {{#if theme_settings.show-help-center}}
+                            {{> components/custom/top-bar-additonal-content}}
+                        {{/if}}
+                        {{#if customer}}
+                        <li>
+                            <a href="{{urls.account.index}}" data-collapsible="navPages-account">
+                                <i class="fas fa-user-circle"></i><span class="topBar-icon-title">My Account</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{urls.auth.logout}}"><i class="fas fa-user-alt-slash"></i><span class="topBar-icon-title">Log Out</span></a>
+                        </li>
+                        {{else}}
+                        <li>
+                           <!-- <a href="{{urls.auth.login}}">{{lang 'common.login'}}</a> -->
+                            <a href="javascript:void(0);" data-dropdown="login-drop" aria-controls="login-drop" aria-expanded="false"><i class="fas fa-user"></i><span class="topBar-icon-title">{{lang 'common.login'}} / {{lang 'common.sign_up'}}</span></a> 
+                            <div id="login-drop" data-dropdown-content class="f-dropdown login-drop-contennt content cusStyle" aria-autoclose="false" aria-hidden="true" tabindex="-1">
+                                <h4>Returning Customer</h4>
+                                <form class="login-form form" action="/login.php?action=check_login" method="post" name="FormLogin">
+                                    <div class="form-field form-field--input form-field--inputEmail">
+                                        <label class="form-label" for="login_email">Email Address:</label>
+                                        <input class="form-input" name="login_email" id="login_email" type="email">
+                                    </div>
+                                    <div class="form-field form-field--input form-field--inputPassword">
+                                        <label class="form-label" for="login_pass">Password:</label>
+                                        <input class="form-input" id="login_pass" type="password" name="login_pass">
+                                    </div>
+                                    <div class="form-actions">
+                                        <input type="submit" class="button button--primary" value="Sign in">
+                                        <a class="forgot-password" href="/login.php?action=reset_password">Forgot your password?</a>
+                                    </div>
+                                </form>
+                                {{#if settings.account_creation_enabled}}
+                                <div class="signup-link">
+                                    <h4>New Customer</h4>
+                                    <p>Registering provides you with personalized services, including: wish list, order status and promotions.</p>
+                                    <a class="button" href="{{urls.auth.create_account}}">{{lang 'common.sign_up'}}</a>
+                                </div>
+                                {{/if}}
+                            </div>
+                        </li>
+                        <!--<li class="signup">
+                            {{#if settings.account_creation_enabled}}
+                            <a href="{{urls.auth.create_account}}">{{lang 'common.sign_up'}}</a>
+                            {{/if}}
+                        </li>-->
+                        {{/if}}
+                        {{#if settings.gift_certificates_enabled}}
+                            <li>
+                                <a href="{{urls.gift_certificate.purchase}}"><i class="fas fa-gift"></i><span class="topBar-icon-title">Gift Certificates</span></a>
+                            </li>
+                        {{/if}}
+                        <li class="top-bar-cart navUser-item--cart">
+                            <a
+                                class=""
+                                data-cart-preview
+                                data-dropdown="cart-preview-dropdown"
+                                data-options="align:right"
+                                href="{{urls.cart}}">
+                                <span class="navUser-item-cartLabel"><i class="far fa-shopping-cart" aria-hidden="true"></i></span> <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span><span class="topBar-icon-title">Cart</span>
+                            </a>
+                            <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" id="trigger-overlay" class="dropdown-button"><i class="fas fa-store-alt"></i><span class="topBar-icon-title">Shop Info</span></a>
+                        </li>
+                        <li><a href="tel:{{settings.phone_number}}"><i class="fas fa-phone-square"></i><span class="topBar-icon-title">1.888.242.6166</span></a></li>
+                        <li><a href="https://bodyjewelry.com/shipping-info/"><i class="fas fa-shipping-fast"></i><span class="topBar-icon-title">We Ship Worldwide</span></a></li>
+                        <li><a href="https://track.shipstation.com/f/r/b/SW0pkJ9U8l10lTf0rc5rlA%3D%3D#"><i class="fas fa-undo fa-fw"></i><span class="topBar-icon-title">Tracking</span></a></li>
+                    </ul>
+                    
+                    <style>
+                    .cusStyle.f-dropdown.is-open{
+                        top: 2rem !important;
+                    }
+                    
+                    .dropdown-menu{
+                        min-width: min-content;
+                    }
+                    
+                    .site-logo.header-logo--left{
+                        display: flex;
+                        justify-content: space-between;
+                        
+                    }
+                    
+                  
+                    .top-bar-menu.topBar-custom {
+                      display: flex;
+                      list-style: none;
+                      justify-content: center;
+                      float: none;
+                      margin: 0;
+                      align-items: center;
+                    }
+                    .top-bar-menu.topBar-custom li {
+                      padding: 0 12px;
+                      font-size: 22px;
+                      position: relative;
+                    }
+                    
+                    .topBar-icon-title {
+                    	font-size: 14px;
+                    	position: absolute;
+                    	bottom: -200%;
+                    	background: #fff;
+                    	padding: 0 8px;
+                    	border: 1px solid;
+                    	border-radius: 6px;
+                    	z-index: -1;
+                    	left: 50%;
+                    	transform: translateX(-50%);
+                    	width: max-content;
+                    	transition: 0.2s;
+                    	opacity: 0;
+                    	visibility: hidden;
+                    }
+                                        
+                    .top-bar-menu.topBar-custom li:hover .topBar-icon-title {
+                    	bottom: -90%;
+                    	z-index: 11;
+                    	opacity: 1;
+                    	visibility: visible;
+                    }
+                    
+                    .topBar-icon-title::before {
+                        position: absolute;
+                        top: -5px;
+                        left: 50%;
+                        transform: rotate(45deg);
+                        height: 10px;
+                        width: 10px;
+                        content: "";
+                        margin-right: ;
+                        background: #fff;
+                        border-left: 1px solid;
+                        border-top: 1px solid;
+                    }
+                    .topBar-icon-title:nth-last-child(1) {
+                      transform: translateX(-80%);
+                    }
+                    .topBar-icon-title:nth-last-child(1):before {
+                      left: auto;
+                      right: 20%;
+                    }
+                    
+                    .countPill {
+                    	position: absolute;
+                    	right: 0;
+                    }
+                    
+                    @media (max-width: 991px) {
+                        .header-search {
+                        	padding: 5px 25px;
+                        }
+                        .navUser-section.top-bar-menu.topBar-custom {
+                        	justify-content: center;
+                        }
+                    }
+                    </style>
+
+
+                {{#if theme_settings.show-payment-icons-header}}
+                    <div class="payment-icon text-right">
+                        {{> components/epicHeader/payment-icon}}
+                    </div>
+                {{/if}}
+            </div>
+        {{/if}}
+
+        {{#if theme_settings.logo-position '==' 'center'}}
+            <div class="col-lg-4">
+                <div class="call-us text-left">
+                    <h3>
+                        <a href="tel:{{settings.phone_number}}">
+                            {{settings.phone_number}}
+                        </a>
+                    </h3>
+                    {{#if theme_settings.header-shop-address '!==' "" }}
+                        <p>{{{theme_settings.header-shop-address}}}</p>
+                    {{/if}}
+                </div>
+                {{#if theme_settings.show-payment-icons-header}}
+                    <div class="payment-icon text-right">
+                        {{> components/epicHeader/payment-icon}}
+                    </div>
+                {{/if}}
+            </div>
+            <div class="col-lg-4">
+                {{#if page_type '===' 'default'}}
+                    <h1 class="site-logo header-logo--center">
+                        {{> components/common/store-logo}}
+                    </h1>
+                {{else}}
+                    <div class="site-logo header-logo--center">
+                        {{> components/common/store-logo}}
+                    </div>
+                {{/if}}
+            </div>
+            <div class="col-lg-4">
+                {{#if theme_settings.epic_hide_search_navigation}}
+                    {{> components/epicHeader/search}}
+                {{/if}}
+            </div>
+            {{> components/epicHeader/header-tabs}}
+        {{/if}}
+
+        {{#if theme_settings.logo-position '==' 'right'}}
+            <div class="col-lg-3">
+                <div class="call-us text-left">
+                    <h3>
+                        <a href="tel:{{settings.phone_number}}">
+                            {{settings.phone_number}}
+                        </a>
+                    </h3>
+                    {{#if theme_settings.header-shop-address '!==' "" }}
+                        <p>{{{theme_settings.header-shop-address}}}</p>
+                    {{/if}}
+                </div>
+                {{#if theme_settings.show-payment-icons-header}}
+                    <div class="payment-icon text-left">
+                        {{> components/epicHeader/payment-icon}}
+                    </div>
+                {{/if}}
+            </div>
+            <div class="col-lg-6">
+                {{> components/epicHeader/header-tabs}}
+                {{#if theme_settings.epic_hide_search_navigation}}
+                    {{> components/epicHeader/search}}
+                {{/if}}
+            </div>
+            <div class="col-lg-3">
+                {{#if page_type '===' 'default'}}
+                    <h1 class="site-logo header-logo--right">
+                        {{> components/common/store-logo}}
+                    </h1>
+                {{else}}
+                    <div class="site-logo header-logo--right">
+                        {{> components/common/store-logo}}
+                    </div>
+                {{/if}}
+            </div>
+        {{/if}}
+
+    </div><!--row-->
+    {{#if theme_settings.epic_hide_search_navigation}}
+        <section data-prevent-quick-search-close  class="quickSearchResults quick-search" data-bind="html: results"></section>
+    {{/if}}
+</div><!--container-fluid-->

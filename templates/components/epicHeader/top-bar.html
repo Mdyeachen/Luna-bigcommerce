@@ -1,0 +1,107 @@
+<style>
+    
+    .ubaid {
+        margin-top: -14px;
+        color: white;
+        font-weight: 600;
+
+    }
+    .invert_effect {
+            filter: invert(100%);
+        }
+</style>
+
+
+<div class="container-fluid">
+    <div class="row top-bar-inner">
+        <div class="col-md-5">
+           {{#if theme_settings.use-google-translate}}
+            <div class="top-google-translate"> 
+                {{> components/epicContent/google-translate}}
+            </div>
+            {{/if}}
+            <div class="top-currency-selector">
+                {{> components/common/currency-selector}}
+            </div>
+            <div class="ubaid" >
+                <img 
+                    style="width: 32px; height: 32px; 
+    filter: invert(1);"
+                    src="https://cdn11.bigcommerce.com/s-yfjn5bpc6d/images/stencil/original/image-manager/return.png" alt="Luxe Modz Body Jewelry Online  Free Returns Policy" title="Luxe Modz Body Jewelry Online  Free Returns Policy">
+                Free Returns on all orders.&nbsp; <a href="https://track.shipstation.com/f/r/b/SW0pkJ9U8l10lTf0rc5rlA%3D%3D#" style="font-weight: 800;">Details</a></div>
+        </div>
+        <div class="col-md-7 text-right padding-right-zero">
+            <ul class="navUser-section top-bar-menu">
+                <li>
+                    <a class="navUser-item--compare" href="{{urls.compare}}" data-compare-nav>{{lang 'common.compare'}} <span class="countPill countPill--positive countPill--alt"></span></a>
+                </li>
+                {{#if theme_settings.show-help-center}}
+                    {{> components/custom/top-bar-additonal-content}}
+                {{/if}}
+                {{#if customer}}
+                <li>
+                    <a href="{{urls.account.index}}" data-collapsible="navPages-account">
+                        {{lang 'common.account'}}
+                    </a>
+                </li>
+                <li>
+                    <a href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
+                </li>
+                {{else}}
+                <li>
+                   <!-- <a href="{{urls.auth.login}}">{{lang 'common.login'}}</a> -->
+                    <a href="javascript:void(0);" data-dropdown="login-drop" aria-controls="login-drop" aria-expanded="false">{{lang 'common.login'}} / {{lang 'common.sign_up'}}</a> 
+                    <div id="login-drop" data-dropdown-content class="f-dropdown login-drop-contennt content" aria-autoclose="false" aria-hidden="true" tabindex="-1">
+                        <h4>Returning Customer</h4>
+                        <form class="login-form form" action="/login.php?action=check_login" method="post" name="FormLogin">
+                            <div class="form-field form-field--input form-field--inputEmail">
+                                <label class="form-label" for="login_email">Email Address:</label>
+                                <input class="form-input" name="login_email" id="login_email" type="email">
+                            </div>
+                            <div class="form-field form-field--input form-field--inputPassword">
+                                <label class="form-label" for="login_pass">Password:</label>
+                                <input class="form-input" id="login_pass" type="password" name="login_pass">
+                            </div>
+                            <div class="form-actions">
+                                <input type="submit" class="button button--primary" value="Sign in">
+                                <a class="forgot-password" href="/login.php?action=reset_password">Forgot your password?</a>
+                            </div>
+                        </form>
+                        {{#if settings.account_creation_enabled}}
+                        <div class="signup-link">
+                            <h4>New Customer</h4>
+                            <p>Registering provides you with personalized services, including: wish list, order status and promotions.</p>
+                            <a class="button" href="{{urls.auth.create_account}}">{{lang 'common.sign_up'}}</a>
+                        </div>
+                        {{/if}}
+                    </div>
+                </li>
+                <!--<li class="signup">
+                    {{#if settings.account_creation_enabled}}
+                    <a href="{{urls.auth.create_account}}">{{lang 'common.sign_up'}}</a>
+                    {{/if}}
+                </li>-->
+                {{/if}}
+                {{#if settings.gift_certificates_enabled}}
+                    <li>
+                        <a href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
+                    </li>
+                {{/if}}
+               <!-- <li class="top-bar-cart navUser-item--cart">
+                    <a
+                        class=""
+                        data-cart-preview
+                        data-dropdown="cart-preview-dropdown"
+                        data-options="align:right"
+                        href="{{urls.cart}}">
+                        <span class="navUser-item-cartLabel"><i class="far fa-shopping-cart" aria-hidden="true"></i></span> <span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+                    </a>
+                    <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
+                </li> -->
+                <li>
+                    <a href="javascript:void(0)" id="trigger-overlay" class="dropdown-button">Shop Info</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div><!--container-->

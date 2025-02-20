@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ locale_name }}">
+    <head>
+        <!-- Start of  Zendesk Widget script -->
+        <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=4525f421-e2ec-4033-869a-9f13fabe0538"> </script>
+        <!-- End of  Zendesk Widget script -->
+        <meta name="p:domain_verify" content="da1b30eb8b7c1a87394a489934d99366"/>
+        <title>{{ head.title }}</title>
+        {{{ resourceHints }}}
+        {{{ head.meta_tags }}}
+        {{{ head.config }}}
+        {{#block "head"}} {{/block}}
+
+        <link href="{{ head.favicon }}" rel="shortcut icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script>
+            {{!-- Change document class from no-js to js so we can detect this in css --}}
+            document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+        </script>
+
+        {{> components/common/polyfill-script }}
+
+        {{!-- Load Lazysizes script ASAP so images will appear --}}
+        <script>
+            {{!-- Only load visible elements until the onload event fires, after which preload nearby elements. --}}
+            window.lazySizesConfig = window.lazySizesConfig || {};
+            window.lazySizesConfig.loadMode = 1;
+        </script>
+        <script async src="{{cdn 'assets/dist/theme-bundle.head_async.js'}}"></script>
+        
+        {{#if page_type '===' 'category'}}
+               <script src="https://cdn.searchmagic.com/v3/production_files/search-magic-sec-yfjn5bpc6d.min.js" id="ysw-search-magic-script-sec" defer ></script>
+               <script>
+                   window.yswSearchSectionPageId = 'c{{category.id}}'
+               </script>
+        {{/if}}
+
+        {{ getFontsCollection }}
+        {{{stylesheet '/assets/css/theme.css'}}}
+
+        {{{head.scripts}}}
+
+        {{~inject 'showAdminBar' theme_settings.show-admin-bar}}
+        {{~inject 'genericError' (lang 'common.generic_error')}}
+        {{~inject 'maintenanceModeSettings' settings.maintenance}}
+        {{~inject 'adminBarLanguage' (langJson 'admin')}}
+        {{~inject 'urls' urls}}
+        {{~inject 'secureBaseUrl' settings.secure_base_url}}
+        {{~inject 'cartId' cart_id}}
+        {{~inject 'channelId' settings.channel_id}}
+        {{~inject 'template' template}}
+        {{~inject 'enabledScrollMenu' theme_settings.ysw_meganav_enabled}}
+    </head>
+    <body class="hs-clean">
+        
+        
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NVRVJQL"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        
+        
+        {{> components/epicHeader/shop-info}}
+        <div id="main-content" class="main-wrapper csmenu-open-wrapper">
+            <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
+
+            {{> ysw/components/header/header }}
+            {{> components/common/body }}
+            {{> components/common/footer }}
+
+            <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
+            <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
+            <script>
+                {{!-- Exported in app.js --}}
+                window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
+            </script>
+
+            {{{footer.scripts}}}
+        </div>
+        <!-- Shopper Approved Category Script - templates/layout/base -->
+        <!--<script src="https://www.resellerratings.com/productreviews/category/Bodyjewelry_com.js"></script>-->
+        <style>
+            #SA_review_wrapper .SA__review_widget .SA__review_widget_item .SA__review_content .SA__review_num_ratings span{
+                vertical-align: -3px;
+            }
+            #SA_review_wrapper .SA__review_widget .SA__review_widget_item .SA__review_content .SA__review_num_ratings span:last-child{
+                vertical-align: -3px;
+            }
+            div#ysw-search-results-div .items .item-box .rr_cat_ratings{
+                display:none;
+            }
+            .tabs #PR_link{
+                display: none;
+            }
+            .group-stars .on { 
+                width: 20px !important; 
+                height: 19px !important; 
+                background-image: url('https://www.shopperapproved.com/page/images3_0/stars/star-full-sm.png') !important; 
+                display: inline-block !important; 
+                
+            } 
+            .group-stars .half { 
+                width: 20px !important; 
+                height: 19px !important; 
+                background-image: url('https://www.shopperapproved.com/page/images3_0/stars/star-half-sm.png') !important; 
+                display: inline-block !important; 
+                
+            } 
+            .group-stars .off { 
+                width: 20px !important; 
+                height: 19px !important; 
+                background-image: url('https://www.shopperapproved.com/page/images3_0/stars/star-empty-sm.png') !important; 
+                display: inline-block !important; 
+                
+            } 
+            .group-stars .ind_cnt { 
+                font-size: 9px; 
+                display: block !important; 
+                width: 100% !important; 
+                text-align: center; 
+                margin: 0 auto; 
+                
+            } 
+            .sa_write_review { 
+                font-weight: bold; 
+            } 
+            .star_container{
+                margin: 10px 0px !important;
+                line-height: 1em !important;
+                height: 38px !important;
+            }
+            /*.group-stars .ind_cnt.low { display: none; }*/
+            #product_just_stars .SA__review_widget_item .SA__total_reviews a{
+                font-size: 12px;
+                vertical-align: -2px;
+            }
+        </style>
+        <script type="text/javascript"> 
+        const sacatRegex = /.*\//gm;
+        const sacatStr = location.pathname;
+        const sacatSubst = '';
+        var sacatURL = sacatStr.replace(sacatRegex, sacatSubst);
+        
+        if (sacatURL != 'order-confirmation' && sacatURL != 'finishorder.php' && sacatURL != 'finish-order.php') {
+        function saLoadScript(src) { var js = window.document.createElement('script'); js.src = src; js.type = 'text/javascript'; document.getElementsByTagName("head")[0].appendChild(js); } saLoadScript("https://www.shopperapproved.com/widgets/group2.0/11580.js?v=2");
+        }
+        </script>
+        
+        <script type="text/javascript">
+        setTimeout(function(){
+          document.querySelectorAll('div#ysw-search-results-div .items .item-box .rr_cat_ratings').forEach(function(o){
+            var itemID = o.getAttribute('data-rr-product-id');
+            o.insertAdjacentHTML("afterend", '<div class="star_container '+ itemID + '"></div>');
+          });
+          
+          document.querySelectorAll('.css-p5c0ju .css-1clkqco').forEach(function(o){
+            //var itemID = o.getAttribute('data-rr-product-id');
+            var url = o.parentElement.querySelector('.css-13w78ue a').getAttribute('href');
+            var itemID = url.split("&product_id=");
+            o.insertAdjacentHTML("afterend", '<div class="star_container '+ itemID[1] + '"></div>');
+          });
+          
+          document.querySelectorAll('.css-g2cffr .css-1clkqco').forEach(function(o){
+            //var itemID = o.getAttribute('data-rr-product-id');
+            o.insertAdjacentHTML("afterend", '<div class="star_container"></div>');
+          });
+          
+          reloadShopperApprovedStars();
+        },5000);
+        </script>
+        <!-- END Shopper Approved Category Script - templates/layout/base -->
+    </body>
+</html>

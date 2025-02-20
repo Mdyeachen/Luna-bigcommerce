@@ -1,0 +1,198 @@
+.productGrid
+{
+	.product
+	{
+		padding-top: 0.75rem;
+    	padding-bottom: 0.75rem;
+	}
+}
+.productCarousel
+{
+	.productCarousel-slide
+	{
+		padding-top: 0.75rem;
+    	padding-bottom: 0.75rem;
+	}
+}
+.epic-product-card
+{
+	padding:0.75rem;
+	&:hover
+	{
+		box-shadow: 1px 0px 14px rgba(0, 0, 0, 0.3);
+	    -webkit-box-shadow: 1px 0px 14px rgba(0, 0, 0, 0.3);
+	    -ms-box-shadow: 1px 0px 14px rgba(0, 0, 0, 0.3);
+	    -moz-box-shadow: 1px 0px 14px rgba(0, 0, 0, 0.3);
+	    .card-figcaption
+	    {
+	    	opacity:1;
+	    }
+	}
+	.card-figure
+	{
+		background-color:$product-image-background-color;
+	}
+	.card-figcaption
+	{
+		.card-figcaption-body
+		{
+			display:block;
+			.box-wishlist
+			{
+				display: inline-block;
+				vertical-align: middle;
+				.form
+				{
+					margin:0;
+				}
+			}
+			.btn-wishlist, .quickview, .btn-compare
+			{
+				transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+				display: inline-block;
+			    background: $card-figcaption-button-background;
+			    color: $card-figcaption-button-color;
+			    border-radius: 0;
+			    border: 1px solid $card-figcaption-button-color;
+			    font-size: 0;
+			    padding: 0;
+			    margin:10px 3px;
+			    line-height: 40px;
+			    height: 40px;
+			    width: 40px;
+			    position: relative;
+			    [class^="fa"]
+			    {
+			    	font-size: 14px;
+			    	vertical-align: middle;
+			    }
+			    &:after
+			    {
+			    	width: 100%;
+				    content: "";
+				    position: absolute;
+				    z-index: 0;
+				    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+				    top: 0;
+				    left: 0;
+				    bottom: 0;
+				    right: 0;
+				    margin: 0 auto;
+				    height: 100%;
+				    background: 0 0;
+			    }
+			    &:hover
+			    {
+			    	color: $card-figcaption-button-background;
+    				background-color: $card-figcaption-button-color;
+    				&:after
+    				{
+    					width: 0;
+    					background-color: $card-figcaption-button-background;
+    				}
+			    }
+			}
+			.box-compare
+			{
+				display: inline-block;
+				input[type="checkbox"]
+				{
+					position: absolute;
+					opacity: 0;
+					&:checked + [class^="fa"]:before
+					{
+						content: "\f14a";
+					}
+				}
+			}
+			.box-cart
+			{
+				.card-figcaption-button
+				{
+					transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+					display: inline-block;
+				    background: $card-figcaption-button-background;
+				    color: $card-figcaption-button-color;
+				    border-radius: 0;
+				    border: 1px solid $card-figcaption-button-color;
+				    padding: 12px;
+				    min-width:140px;
+    				font-size: 14px;
+    				margin:0;
+    				position: relative;
+    				[class^="fa"]
+				    {
+				    	font-size: 16px;
+				    	margin-right:5px;
+				    }
+				    &:after
+				    {
+				    	width: 100%;
+					    content: "";
+					    position: absolute;
+					    z-index: 0;
+					    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+					    top: 0;
+					    left: 0;
+					    bottom: 0;
+					    right: 0;
+					    margin: 0 auto;
+					    height: 100%;
+					    background: 0 0;
+				    }
+				    &:hover
+				    {
+				    	color: $card-figcaption-button-background;
+	    				background-color: $card-figcaption-button-color;
+	    				&:after
+	    				{
+	    					width: 0;
+	    					background-color: $card-figcaption-button-background;
+	    				}
+				    }
+				}
+			}
+		}
+	}
+	.card-body 
+	{
+    	text-align: center;
+    	.card-title
+    	{
+    		font-size:16px;
+    	}
+    	.price-section
+    	{
+    		font-weight:700;
+    	}
+	}
+}
+@media only screen and (min-width: 1440px)
+{
+	.large-cards .productGrid .product, .page-sidebar+.page-content .large-cards .productGrid .product 
+	{
+	    width: 33.33333%!important;
+	}
+}
+@media only screen and (max-width: 1439px) and (min-width: 551px)
+{
+	.large-cards .productGrid .product, .page-sidebar+.page-content .large-cards .productGrid .product 
+	{
+    	width: 50%!important;
+    }
+}
+@media only screen and (max-width: 800px)
+{
+	.epic-product-card .card-figcaption
+	{
+		display:block;
+	}
+}
+@media only screen and (max-width: 640px)
+{
+	.productGrid .product 
+	{
+	    display: block;
+	    width: 100%;
+	}
+}

@@ -1,0 +1,23 @@
+// Breakpoints
+// --------------------------------
+// Desktop Devices: huge, b-xxlarge, b-xlarge, large
+// Mobile Devices: b-large, b-medium, medium, mobile
+// Handheld Devices: b-small, small, handheld
+$ysw-breakpoints: (
+    // Stencil Screens
+    "small": 551px,
+    "medium": 801px,
+    "large": 1261px,
+
+    // Bootstrap Screens
+    "b-small": 577px,
+    "b-medium": 768px,
+    "b-large": 992px,
+    "b-xlarge": 1200px,
+    "b-xxlarge": 1400px,
+
+    // Custom Screens
+    "handheld": 480px,
+    "mobile": 1024px,
+    "huge": 1600px
+) !default;

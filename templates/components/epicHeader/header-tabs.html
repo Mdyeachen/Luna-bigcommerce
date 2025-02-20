@@ -1,0 +1,35 @@
+{{#if theme_settings.show_header_tabs}}
+{{#if theme_settings.logo-position '==' 'center'}}
+<div class="col-6 mr-auto ml-auto mt-3">
+{{/if}}
+    <ul class="row header-col">
+        <li class="col">
+            <a class="{{#if theme_settings.show_header_tabs}}shipping-drop{{else}}no-drop{{/if}}" href="JavaScript:void(0)">
+                <h4><i class="{{theme_settings.epic_header_shipping_icon}}"></i> {{theme_settings.epic_header_shipping_heading}}</h4>
+            </a>
+        </li>
+        <li class="col">
+            <a class="{{#if theme_settings.show_header_tabs}}price-drop{{else}}no-drop{{/if}}" href="JavaScript:void(0)">
+                <h4><i class="{{theme_settings.epic_header_custom_design_icon}}"></i> {{theme_settings.epic_header_custom_design_heading}}</h4>
+            </a>
+        </li>
+        <li class="col">
+            <a class="{{#if theme_settings.show_header_tabs}}support-drop{{else}}no-drop{{/if}}" href="JavaScript:void(0)">
+                <h4><i class="{{theme_settings.epic_header_happiness_guaranteed_icon}}"></i> {{theme_settings.epic_header_happiness_heading}}</h4>
+            </a>
+        </li>
+    </ul>
+    <div id="free-shipping" class="header-col-drop">
+        {{> components/custom/header-tabs/tab-one }}
+    </div>
+    <div id="price-promise" class="header-col-drop">
+        {{> components/custom/header-tabs/tab-two }}
+    </div>
+    <div id="online-support" class="header-col-drop">
+        {{> components/custom/header-tabs/tab-three }}
+    </div>
+    <div class="divider-15"></div>
+{{#if theme_settings.logo-position '==' 'center'}}
+</div>
+{{/if}}
+{{/if}}

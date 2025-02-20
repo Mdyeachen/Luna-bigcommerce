@@ -1,0 +1,210 @@
+.testimonial-section
+{
+	padding:40px 0;
+    position: relative;
+    .container
+    {
+    	max-width:960px;
+    }
+    .testimonials-title
+    {
+    	margin-bottom:30px;
+    	label
+    	{
+    		text-transform: uppercase;
+		    letter-spacing: 4px;
+		    font-size: 11px;
+		    cursor: text;
+		    display: block;
+    	}
+    	h2
+    	{
+    		margin: 15px 0 0;
+		    text-transform: uppercase;
+		    letter-spacing: 2px;
+		    span
+		    {
+		    	display: inline-block;
+			    padding: 0 40px;
+			    position: relative;
+			    &:before, &:after
+			    {
+			    	content: "";
+				    width: 20px;
+				    background:$header-font-color;
+				    height: 3px;
+				    position: absolute;
+				    top: 50%;
+				    margin-top: -1.5px;
+			    }
+			    &:after
+			    {
+			    	left:0;
+			    }
+			    &:before
+			    {
+			    	right:0;
+			    }
+		    }
+    	}
+    }
+    .testimonial-content
+    {
+    	padding:0 4rem;
+    	.testimonial-item
+    	{
+    		p
+    		{
+    			font-size:16px;
+    			line-height:1.7;
+    			&:before, &:after
+    			{
+    				font-family: 'Font Awesome 5 Pro';
+    				margin: 0 10px;
+    			}
+    			&:before
+    			{
+    				content: "\f10d";
+    			}
+    			&:after
+    			{
+    				content: "\f10e";
+    			}
+    		}
+    		h4
+    		{
+    			margin:0;
+    		}
+    	}
+    }
+    .slick-next, .slick-prev
+    {
+    	font-size: 0;
+	    width: 40px;
+	    height: 40px;
+	    transition: all .35s ease;
+	    -webkit-transition: all .35s ease;
+	    -ms-transition: all .35s ease;
+	    -moz-transition: all .35s ease;
+	    background: 0 0;
+	    cursor: pointer;
+	    border: none;
+	    box-shadow: 0 0 0 2px #222222 inset;
+		-webkit-box-shadow: 0 0 0 2px #222222 inset;
+		-ms-box-shadow: 0 0 0 2px #222222 inset;
+		-moz-box-shadow: 0 0 0 2px #222222 inset;
+		&:before
+		{
+		    display: block;
+		    font-family: 'Font Awesome 5 Pro';
+		    color: #222222;
+		    background-image: none;
+		    transition: all .3s cubic-bezier(.25,.46,.45,.94);
+		    -webkit-transition: all .3s cubic-bezier(.25,.46,.45,.94);
+		    -ms-transition: all .3s cubic-bezier(.25,.46,.45,.94);
+		    -moz-transition: all .3s cubic-bezier(.25,.46,.45,.94);
+		    font-size: 20px;
+		    width: 100%;
+		    margin: 0;
+		    height: 100%;
+		    line-height: 1;
+		}
+		&:hover
+		{
+			background:#222222;
+			-webkit-box-shadow: 0 0 0 30px #222222 inset;
+			-ms-box-shadow: 0 0 0 30px #222222 inset;
+			-moz-box-shadow: 0 0 0 30px #222222 inset;
+    		box-shadow: 0 0 0 30px #222222 inset;
+    		&:before
+    		{
+    			opacity:1;
+    			color:#ffffff;
+    		}
+		}
+    }
+    .slick-prev
+    {
+    	left:0;
+    	&:before
+    	{
+    		content: "\f053";
+    	}
+    }
+    .slick-next
+    {
+    	right:0;
+    	&:before
+    	{
+    		content: "\f054";
+    	}
+    }
+    &.testimonial-section-bg
+    {
+	    background-repeat: no-repeat;
+	    background-position: center center;
+	    background-size: cover;
+	    padding:60px 0;
+	    &:before
+	    {
+	    	content: "";
+		    position: absolute;
+		    left: 0;
+		    right: 0;
+		    height: 100%;
+		    width: 100%;
+		    top: 0;
+		    bottom: 0;
+		    background: rgba(0,0,0,.7);
+	    }
+    	.testimonials-title
+    	{
+    		label
+    		{
+    			color:#ffffff;
+    		}
+    		h2
+    		{
+    			color:#ffffff;
+    			span
+    			{
+    				&:before, &:after
+    				{
+    					background:#ffffff;
+    				}
+    			}
+    		}
+    	}
+    	.testimonial-content .testimonial-item
+    	{
+    		color:#ffffff;
+    		p, a, h1, h2, h3, h4, h5, h6 
+    		{
+    			color:#ffffff;
+    		}
+    	}
+    	.slick-next, .slick-prev
+    	{
+    		box-shadow: 0 0 0 2px #ffffff inset;
+			-webkit-box-shadow: 0 0 0 2px #ffffff inset;
+			-ms-box-shadow: 0 0 0 2px #ffffff inset;
+			-moz-box-shadow: 0 0 0 2px #ffffff inset;
+			&:before
+			{
+				color:#ffffff;
+			}
+			&:hover
+			{
+				background:#ffffff;
+				-webkit-box-shadow: 0 0 0 30px #ffffff inset;
+				-ms-box-shadow: 0 0 0 30px #ffffff inset;
+				-moz-box-shadow: 0 0 0 30px #ffffff inset;
+	    		box-shadow: 0 0 0 30px #ffffff inset;
+	    		&:before
+	    		{
+	    			color:#222222;
+	    		}
+			}
+    	}
+    }
+}

@@ -1,0 +1,15 @@
+
+<div class="home-blog">
+    <div class="homeBlog-img">
+        {{#if recent_posts.thumbnail}}
+        <img src="{{getImage recent_posts.thumbnail 'defaultImage'}}" alt="{{recent_posts.title}}">
+        {{else}}
+            <img src="https://via.placeholder.com/300x300?text=Blog" alt="{{recent_posts.title}}">
+        {{/if}}
+    </div>
+    <div class="home-blog-content">
+        <h3>{{recent_posts.title}}</h3>
+        <p>{{#if recent_posts.author}}{{lang 'blog.posted_by' name=recent_posts.author}} on {{/if}}{{recent_posts.date_published}}</p>
+        <a href="{{recent_posts.url}}">Read More</a>
+    </div>
+</div>

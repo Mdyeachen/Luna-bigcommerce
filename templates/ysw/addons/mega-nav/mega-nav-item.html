@@ -1,0 +1,13 @@
+<li class="ysw-c-mega-nav__item navPages-item"
+    {{#if (get (concat 'ysw_meganav_item_children_' (sum $index 1)) theme_settings)}}
+        data-ysw-dropdown="navPages-{{$index}}"
+        tabindex="0"
+    {{/if}}
+    >
+    {{> ysw/addons/mega-nav/mega-nav-list
+        id=$index
+        name=(get (concat 'ysw_meganav_item_name_' (sum $index 1)) theme_settings)
+        url=(get (concat 'ysw_meganav_item_url_' (sum $index 1)) theme_settings)
+        children=(get (concat 'ysw_meganav_item_children_' (sum $index 1)) theme_settings)
+    }}
+</li>

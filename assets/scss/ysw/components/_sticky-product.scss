@@ -1,0 +1,64 @@
+.ysw-c-sticky-product-info {
+    width: 100%;
+    position: fixed;
+    z-index: 8;
+    bottom: (-(remCalc(200px)));
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+
+    &.is-active {
+        bottom: 0;
+        opacity: 1;
+    }
+
+    &__container {
+        padding: remCalc(10px 20px 20px);
+        background-color: $ysw-color-white;
+        box-shadow: $ysw-color-sticky-product-shadow 0 remCalc(8px 24px);
+        display: flex;
+        align-items: center;
+        gap: remCalc(20px);
+    }
+
+    &__image {
+        margin: 0;
+        max-width: remCalc(70px);
+        aspect-ratio: 1/1;
+        flex: 1;
+    }
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        flex: 1;
+        flex-wrap: wrap;
+        gap: remCalc(5px);
+    }
+
+    &__description {
+        max-width: remCalc(600px);
+        padding-top: remCalc(10px);
+
+        &-title {
+        font-weight: 600;
+        margin-block: remCalc(0 5px);
+        font-size: remCalc(14px);
+
+            @include ysw-breakpoint("handheld") {
+                font-size: remCalc(16px);
+            }
+        }
+    }
+
+    &__form {
+        gap: remCalc(10px 15px);
+        flex-wrap: wrap;
+        display: flex;
+        align-items: center;
+
+        .form-field,
+        input {
+            margin: 0;
+        }
+    }
+}

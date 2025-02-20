@@ -1,0 +1,11 @@
+<h4 class="col-title">
+    {{lang 'epicHeader.contact'}}
+</h4>
+<ul class="shop-info-address">
+    <li class="shop-info-address__item">{{settings.store_name}}</li>
+    <li class="shop-info-address__item">{{settings.phone_number}}</li>
+    {{#if theme_settings.header-shop-address '!==' "" }}
+        <li class="shop-info-address__item">{{{theme_settings.header-shop-address}}}</li>
+    {{/if}}
+    <li class="shop-info-address__item">{{{settings.address}}}</li>
+</ul>

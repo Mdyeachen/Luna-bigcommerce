@@ -1,0 +1,411 @@
+{{#if page_type '!==' 'default'}}
+    {{#if banners.bottom}}
+        {{#if settings.data_tag_enabled}}
+            <div class="banners" data-banner-location="bottom">
+                {{#each (limit banners.bottom_metadata 1)}}
+                    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
+                        <div data-event-type="promotion-click">
+                            {{{this.content}}}
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        {{else}}
+            <div class="banners" data-banner-location="bottom">
+                <div class="banner">
+                    {{{limit banners.bottom 1}}}
+                </div>
+            </div>
+        {{/if}}
+    {{/if}}
+{{/if}}
+
+</footer>
+
+<a id="back-to-top" href="#" class="backtotop">
+    <i class="fal fa-angle-up"></i>
+</a>
+
+<footer class="site-footer">
+    {{> components/epicFooter/footer-about enabled=theme_settings.epic_footer_display_cta}}
+    
+    <section class="trust-section">
+        <div class="container-fluid container-lg">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="trust-items">
+                        <div class="trust-item">
+                            <a href="https://www.sitejabber.com/reviews/www.bodyjewelry.com?sort=rating&amp;direction=desc#reviews" target="_blank">
+                                <img style="min-height: 60px;"
+                                    src="https://biz.sitejabber.com/img/badge_5stars.1476819396.png"
+                                    alt="BodyJewelry.com Reviews - SiteJabber"
+                                >
+                            </a>
+                        </div>
+                        <div class="trust-item">
+                            <a
+                                target="_blank"
+                                title="Click for the Business Review of BodyJewelry.com, an Internet Shopping in Margate FL"
+                                href="https://www.bbb.org/south-east-florida/business-reviews/online-shopping/bodyjewelrycom-in-margate-fl-92013974#sealclick"
+                            >
+                                <img
+                                    alt="Click for the BBB Business Review of this Internet Shopping in Margate FL"
+                                    style="border: 0;"
+                                    src="https://seal-Seflorida.bbb.org/seals/blue-seal-63-134-bodyjewelrycom-92013974.png"
+                                >
+                            </a>
+                        </div>
+                        <div class="trust-item">
+                            <!-- (c) 2005, 2024. Authorize.Net is a registered trademark of CyberSource Corporation --> <div class="AuthorizeNetSeal"> <script type="text/javascript" language="javascript">var ANS_customer_id="81733883-ae6f-4e73-af9e-346663b84c2e";</script> <script type="text/javascript" language="javascript" src="//verify.authorize.net:443/anetseal/seal.js" ></script> </div>
+                        </div>
+                        <div class="trust-item">
+                            <!-- Shopper Approved - templates/components/common/footer.html -->
+                            <a href="https://www.shopperapproved.com/reviews/bodyjewelry.com" class="shopperlink new-sa-seals placement-1542"><img src="//www.shopperapproved.com/seal/11580/1542-sa-seal.gif" style="border-radius: 4px; max-width: unset; margin: 10px 0;" alt="Customer Reviews" oncontextmenu="var d = new Date(); alert('Copying Prohibited by Law - This image and all included logos are copyrighted by Shopper Approved \251 '+d.getFullYear()+'.'); return false;" /></a><script type="text/javascript"> (function() { var js = window.document.createElement("script"); js.innerHTML = 'function openshopperapproved(o){ var e="Microsoft Internet Explorer"!=navigator.appName?"yes":"no",n=screen.availHeight-90,r=940;return window.innerWidth<1400&&(r=620),window.open(this.href,"shopperapproved","location="+e+",scrollbars=yes,width="+r+",height="+n+",menubar=no,toolbar=no"),o.stopPropagation&&o.stopPropagation(),!1}!function(){for(var o=document.getElementsByClassName("shopperlink"),e=0,n=o.length;e<n;e++)o[e].onclick=openshopperapproved}();'; js.type = "text/javascript"; document.getElementsByTagName("head")[0].appendChild(js);var link = document.createElement('link');link.rel = 'stylesheet';link.type = 'text/css';link.href = "//www.shopperapproved.com/seal/1542.css";document.getElementsByTagName('head')[0].appendChild(link);})();</script>
+                            <!-- END Shopper Approved - templates/components/common/footer.html -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-footer">
+        
+        
+        
+        <div class="container-fluid container-lg">
+            <div class="row footer-items">
+                <div class="footer-item">
+                    <h4>Why Choose Us?</h4>    
+                    <p class="mt-3">
+                        {{lang 'newsletter.subscribe_intro'}}
+                    </p>
+
+                    {{> components/common/social-links}}
+                </div>
+                <div class="footer-item">
+                        <h4>
+                            {{lang 'footer.navigate'}}
+                        </h4>
+                        <ul class="footer-info-list">
+                            {{#if theme_settings.ysw_footer_link_1_title}}
+                                <li>
+                                    <a href="{{theme_settings.ysw_footer_link_1_url}}">
+                                        <i class="fas fa-angle-right"></i> {{theme_settings.ysw_footer_link_1_title}}
+                                    </a>
+                                </li>
+                            {{/if}}
+    
+                            {{#if theme_settings.ysw_footer_link_2_title}}
+                                <li>
+                                    <a href="{{theme_settings.ysw_footer_link_2_url}}">
+                                        <i class="fas fa-angle-right"></i> {{theme_settings.ysw_footer_link_2_title}}
+                                    </a>
+                                </li>
+                            {{/if}}
+    
+                            {{#if theme_settings.ysw_footer_link_3_title}}
+                                <li>
+                                    <a href="{{theme_settings.ysw_footer_link_3_url}}">
+                                        <i class="fas fa-angle-right"></i> {{theme_settings.ysw_footer_link_3_title}}
+                                    </a>
+                                </li>
+                            {{/if}}
+    
+                            {{#if theme_settings.ysw_footer_link_4_title}}
+                                <li>
+                                    <a href="{{theme_settings.ysw_footer_link_4_url}}">
+                                        <i class="fas fa-angle-right"></i> {{theme_settings.ysw_footer_link_4_title}}
+                                    </a>
+                                </li>
+                            {{/if}}
+    
+                            {{#if theme_settings.ysw_footer_link_5_title}}
+                                <li>
+                                    <a href="{{theme_settings.ysw_footer_link_5_url}}">
+                                        <i class="fas fa-angle-right"></i> {{theme_settings.ysw_footer_link_5_title}}
+                                    </a>
+                                </li>
+                            {{/if}}
+    
+                            {{#if theme_settings.ysw_footer_link_6_title}}
+                                <li>
+                                    <a href="{{theme_settings.ysw_footer_link_6_url}}">
+                                        <i class="fas fa-angle-right"></i> {{theme_settings.ysw_footer_link_6_title}}
+                                    </a>
+                                </li>
+                            {{/if}}
+                        </ul>
+                    </div>
+                <div class="footer-item">
+                        <h4>Our Policy:</h4>
+                        <ul class="footer-info-list">
+                            {{#if theme_settings.ysw_footer_link_7_title}}
+                                <li>
+                                    <a href="{{theme_settings.ysw_footer_link_7_url}}">
+                                        <i class="fas fa-angle-right"></i> {{theme_settings.ysw_footer_link_7_title}}
+                                    </a>
+                                </li>
+                            {{/if}}
+                            {{#if theme_settings.ysw_footer_copy_link_1_title}}
+                                <li>
+                                    <a href="{{theme_settings.ysw_footer_copy_link_1_url}}">
+                                        <i class="fas fa-angle-right"></i> {{theme_settings.ysw_footer_copy_link_1_title}}
+                                    </a>
+                                </li>
+                            {{/if}}
+    
+                            {{#if theme_settings.ysw_footer_copy_link_2_title}}
+                                <li>
+                                    <a href="{{theme_settings.ysw_footer_copy_link_2_url}}">
+                                        <i class="fas fa-angle-right"></i> {{theme_settings.ysw_footer_copy_link_2_title}}
+                                    </a>
+                                </li>
+                            {{/if}}
+    
+                            {{#if theme_settings.ysw_footer_copy_link_3_title}}
+                                <li>
+                                    <a href="{{theme_settings.ysw_footer_copy_link_3_url}}">
+                                        <i class="fas fa-angle-right"></i> {{theme_settings.ysw_footer_copy_link_3_title}}
+                                    </a>
+                                </li>
+                            {{/if}}
+    
+                            {{#if theme_settings.ysw_footer_copy_link_4_title}}
+                                <li>
+                                    <a href="{{theme_settings.ysw_footer_copy_link_4_url}}">
+                                        <i class="fas fa-angle-right"></i> {{theme_settings.ysw_footer_copy_link_4_title}}
+                                    </a>
+                                </li>
+                            {{/if}}
+    
+                            {{#if theme_settings.ysw_footer_copy_link_5_title}}
+                                <li>
+                                    <a href="{{theme_settings.ysw_footer_copy_link_5_url}}">
+                                        <i class="fas fa-angle-right"></i> {{theme_settings.ysw_footer_copy_link_5_title}}
+                                    </a>
+                                </li>
+                            {{/if}}
+                        </ul>
+                    </div>
+                <div class="footer-item">
+                        <h4>Information:</h4>
+                        <ul class="footer-info-list">
+                              {{#if theme_settings.ysw_footer_copy_link_6_title}}
+                                <li>
+                                    <a href="{{theme_settings.ysw_footer_copy_link_6_url}}">
+                                        <i class="fas fa-angle-right"></i> {{theme_settings.ysw_footer_copy_link_6_title}}
+                                    </a>
+                                </li>
+                            {{/if}}
+    
+                            {{#if theme_settings.ysw_footer_copy_link_7_title}}
+                                <li>
+                                    <a href="{{theme_settings.ysw_footer_copy_link_7_url}}">
+                                        <i class="fas fa-angle-right"></i> {{theme_settings.ysw_footer_copy_link_7_title}}
+                                    </a>
+                                </li>
+                            {{/if}}
+    
+                            {{#if theme_settings.ysw_footer_copy_link_8_title}}
+                                <li>
+                                    <a href="{{theme_settings.ysw_footer_copy_link_8_url}}">
+                                        <i class="fas fa-angle-right"></i> {{theme_settings.ysw_footer_copy_link_8_title}}
+                                    </a>
+                                </li>
+                            {{/if}}
+                            
+                            <li>
+                                <a href="https://bodyjewelry.com/proper-aftercare-is-crucial-for-the-healing-process-of-your-new-piercing/">
+                                    <i class="fas fa-angle-right"></i>  Piercing Aftercare
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://bodyjewelry.com/login.php?action=create_account">
+                                    <i class="fas fa-angle-right"></i>  Create Account
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://bodyjewelry.com/login.php">
+                                    <i class="fas fa-angle-right"></i>  My Account
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="https://bodyjewelry.com/body-piercing-guide-the-complete-guide-to-all-body-piercings/">
+                                    <i class="fas fa-angle-right"></i>  Body Piercing Guide
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+        
+        <div class="container-fluid container-lg">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="newsletter-box">
+                        <div class="subscription-section">
+                            {{#if settings.show_newsletter_box}}
+                                {{> components/common/subscription-form}}
+                            {{/if}}
+                        </div>
+                        <div class="footer-payment">
+                            {{#if theme_settings.show-payment-icons-footer}}
+                                {{> components/epicFooter/footer-payment-icon}}
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="copyright-info">
+    <div class="container-fluid container-lg">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="copyright-text">
+                    <div class="footer-adress">
+                        <a href="https://goo.gl/maps/jfT9nvkqQHx"><i class="fas fa-map-marker-alt"></i>1755 Banks Road Margate, FL 33063</a>
+                    </div>
+                    <div class="copyright-text">
+                        <p>All Rights Reserved &copy; {{moment format="YYYY"}} BodyJewelry.com.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+/*--- Trust Images Section ---*/
+.trust-section {
+	-webkit-box-shadow: 0px 2px 5px 1px rgba(227,227,227,1);
+	-moz-box-shadow: 0px 2px 5px 1px rgba(227,227,227,1);
+	box-shadow: 0px 0px 5px 1px rgb(242, 242, 242);
+}
+.trust-items {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	padding: 20px 0;
+	
+}
+
+/*--- Footer menu ---*/
+.footer-items {
+  display: grid;
+  grid-template-columns: repeat(10 , 1fr);
+  margin: 0;
+  gap: 5px;
+}
+.footer-item:first-child {
+  grid-column: 1 /span 4;
+  padding-left: 0;
+  padding-right: 30px;
+}
+.footer-item {
+  grid-column: auto / span 2;
+  padding: 0 15px;
+}
+
+/*--- Subscription Section ---*/
+
+.newsletter-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.subscription-section {
+  width: 100%;
+  max-width: 450px;
+}
+.subcription-style {
+  justify-content: space-between;
+  flex-wrap: nowrap !important;
+  border-bottom: 1px solid;
+  padding: 0 15px;
+}
+.subcription-style input {
+	margin: 0 !important;
+	background: transparent !important;
+	color: #000 !important;
+	font-size: 15px !important;
+	transition: .2s;
+	border: none;
+	padding: 0 !important;
+}
+.subcription-style input[type="submit"] {
+	padding-left: 15px !important;
+}
+.subcription-style input:hover[type="submit"] {
+	color: #488bc1 !important;
+}
+
+.footer-payment {
+	display: flex;
+	height: 100%;
+	align-items: end;
+}
+.footer-payment-icon li {
+  font-size: 26px !important;
+}
+
+
+/*--- bottom foooter ---*/
+
+.copyright-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.copyright-text i {
+	font-size: 18px;
+	margin-right: 5px;
+}
+@media (max-width: 810px) {
+    /*--- Footer menu ---*/
+    .footer-item:first-child,
+    .footer-item {
+      grid-column: auto / span 5;
+      padding: 0 15px;
+    }
+
+    /*--- Newsletter Box ---*/
+    .newsletter-box {
+	    flex-direction: column;
+	    gap: 15px;
+    }
+    
+    /*--- Copyright Section ---*/
+    .copyright-text {
+      flex-direction: column;
+    }
+}
+
+
+@media (max-width: 510px) {
+    /*--- Trust Images Section ---*/
+    .trust-items {
+	    gap: 5px;
+    }
+
+
+    /*--- Footer menu ---*/
+    .footer-item:first-child,
+    .footer-item {
+      grid-column: auto / span 10;
+    }
+    
+    /*--- Subscription Section ---*/
+    .main-footer .footer-payment-icon li {
+	font-size: 22px;
+}
+}
+
+</style>
+

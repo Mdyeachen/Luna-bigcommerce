@@ -1,0 +1,67 @@
+
+
+<a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
+{{#if theme_settings.use-yotpo}}
+    <input type="hidden" value="{{theme_settings.yotpo-app-key}}" name="yotpo_key" id="yotpo-key">
+{{/if}}
+<header class="site-header clean sticky-header {{#if theme_settings.ysw_header_banner_enable}}has-banner{{/if}}">
+    {{#if theme_settings.ysw_header_banner_enable}}
+    <div class="ysw-banner">
+        <a href="{{theme_settings.ysw_home_banner_link}}">
+            <div class="container">
+                <p>{{theme_settings.ysw_header_banner_text}}</p>
+            </div>
+        </a>
+    </div>
+    {{/if}}
+    
+    <section class="top-bar navUser" style="display: none;">
+        {{> components/epicHeader/top-bar}}
+    </section>
+    
+    <section class="logo-bar">
+        {{> components/epicHeader/logo-bar}}
+    </section>
+    <section class="mob-header">
+        {{> components/epicHeader/mob-header}}
+    </section>
+    <div>
+        {{> ysw/addons/mega-nav/mega-nav-menu}}
+    </div>
+</header> 
+{{{region name="header_bottom--global"}}}
+{{#if banners.top}}
+<div class="banners" data-banner-location="top">
+    {{#each (limit banners.top_metadata 1)}}
+    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+        <div data-event-type="promotion-click">
+            {{{this.content}}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+{{{region name="header_bottom"}}}
+
+
+<style>
+    .logo-bar{
+	    padding: 0;
+    }
+        .site-header.sticky-header {
+    	position: sticky;
+    	top: 0;
+    	left: 0;
+    	z-index: 99;
+    	-webkit-box-shadow: 0px 2px 5px 1px rgba(227,227,227,1);
+    	-moz-box-shadow: 0px 2px 5px 1px rgba(227,227,227,1);
+    	box-shadow: 0px 0px 5px 1px rgb(227, 227, 227);
+    }
+    
+    @media (min-width: 801px) {
+      .ysw-banner {
+        	height: 35px;
+        	padding: 0;
+        }
+}
+</style>

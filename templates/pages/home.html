@@ -1,0 +1,250 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+carousel: {{theme_settings.homepage_show_carousel}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+        summary: 70
+---
+
+
+{{#partial "page"}}
+{{#if theme_settings.left-category-menu}}
+<div class="container-fluid left_category_menu_active">
+    <div class="row">
+        <div class="col-xl-3 lcm-1 d-none d-xl-block">
+            <h3 class="left_category_title">Shop By</h3>
+            <ul class="left_category_menu">
+            {{#each categories}}
+                {{#if children}}
+                    <li class="left_category_child">
+                        <a href="{{url}}"><i class="fal fa-angle-right" aria-hidden="true"></i> {{name}}</a>
+                        <ul class="left_category_submenu">
+                            {{#each children}}
+                                {{#if children}}
+                                    <li><a href="{{url}}"><i class="fal fa-angle-right" aria-hidden="true"></i> {{name}}</a>
+                                        <ul class="category_submenu_submenu">
+                                            {{#each children}}
+                                                <li><a href="{{url}}">{{name}}</a></li>
+                                            {{/each}}
+                                        </ul>
+                                    </li>
+                                {{else}}
+                                    <li><a href="{{url}}">{{name}}</a></li>
+                                {{/if}}
+                            {{/each}}
+                        </ul>
+                    </li>
+                {{else}}
+                    <li><a href="{{url}}">{{name}}</a></li>
+                {{/if}}
+            {{/each}}
+            </ul>
+        </div>
+        <div class="lcm-2 col-xl-9">
+    {{/if}}
+
+    {{{region name="home_below_menu"}}}
+
+    {{#if carousel}}
+        {{> components/carousel arrows=theme_settings.homepage_show_carousel_arrows}}
+    {{/if}}
+
+    {{#each shipping_messages}}
+        {{> components/common/alert/alert-info message}}
+    {{/each}}
+    <div class="main full">
+        {{#if theme_settings.display-mega-banner}}
+        <section class="mega-banner">
+                {{> components/epicContent/mega-banner}}
+        </section>
+        <style>
+        .mega-banner {
+          padding: 0 !important;
+          width: 100%;
+          overflow: hidden;
+        }
+        .mega-banner .col-md-4 {
+          padding: 0;
+        }
+        
+        .widget-banner{
+            margin-bottom:0 !important;
+        }
+        .widget-banner.wid-height{
+            height: 50%;   
+        }
+        /*Min layout=767px  */
+        @media (min-width:767px) {
+            .widget-banner img{
+                height : 100%;
+            }
+        }
+        
+         
+        /*Min layout=767px  */
+        @media (max-width:767px) {
+            .mega-banner .row > div:nth-child(1) {
+            	order: 1;
+            }
+        }
+    </style>
+        {{/if}}
+        
+        
+        {{{region name="home_below_carousel"}}}
+        
+ 
+        <!-- tor testimonials section -->
+         {{#if theme_settings.display-testimonial-section}}
+            {{#if banners.bottom}}
+                {{> components/epicContent/home-testimonials }}
+            {{/if}}
+        {{/if}}
+        
+        {{#if products.featured}}
+        <section class="featured-product-section home-section {{#if theme_settings.product-menu-featured-section}}left-featured-product-menu{{/if}}" style="padding-top: 25px">
+            <div class="container-fluid {{#if theme_settings.contain-featured-section}}container{{else}}container-lg{{/if}}">
+                {{#if theme_settings.product-menu-featured-section}}
+                    <div class="row no-gutters">
+                        <div class="col-lg-3 featured-cate-left">
+                            <div class="featured-cate-inner">
+                                <h3 class="section-title cat-title">Categories</h3>
+                                <h3 class="section-title cat-back" style="display: none;"><a href="javascript:void(0)" class="cat-back-link"><i class="fal fa-angle-left" aria-hidden="true"></i> Go back</a></h3>
+                                <ul class="home-featured-tabs tabs vertical" data-tab>
+                                    {{#each categories}}
+                                        {{#if children}}
+                                        <li class="tab-title"><a href="#featured-cate-{{id}}">{{name}}<i class="fal fa-angle-right" aria-hidden="true"></i></a></li>
+                                        {{else}}
+                                        <li class="tab-title" onclick="location.href='{{url}}'"><a href="{{url}}">{{name}}</a></li>
+                                        {{/if}}
+                                    {{/each}}
+                                </ul>
+
+                                {{#each categories}}
+                                {{#if children}}
+                                    <ul class="featured-tab-content content" id="featured-cate-{{id}}">
+                                        <li>
+                                           <a href="{{url}}">{{name}}</a>
+                                        </li>
+                                        {{#each children}}
+                                            <li>
+                                                <a href="{{url}}">{{name}}</a>
+                                            </li>
+                                        {{/each}}
+                                    </ul>
+                                {{/if}}
+                                {{/each}}
+                            </div>
+                        </div>
+                        <div class="col-lg-9 featured-pro-right">
+                {{/if}}
+                    {{#if theme_settings.home-featured-style "==" "slider"}}
+                        {{> components/epicContent/home-featured-slider products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+                    {{else}}
+                        {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+                    {{/if}}
+                {{#if theme_settings.product-menu-featured-section}}
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+        </section>
+        {{/if}}
+
+        
+        
+        {{{region name="home_below_new_products"}}}
+        
+        
+        {{#if theme_settings.show-homepage-category-thumbs}}
+            <section class="categories-box-section">
+                <div class="row no-gutters">
+                {{#each categories}}
+                    {{#if image}}
+                        <div class="col-md-6 col-lg-3">
+                            <div class="category-box">
+                                {{> components/common/responsive-img
+                                    image=image
+                                    fallback_size=theme_settings.zoom_size
+                                    lazyload=theme_settings.lazyload_mode
+                                }}
+                                <div class="category-content">
+                                    <h4>{{name}}</h4>
+                                    <a href="{{url}}" class="button button--primary">{{lang 'home.category_thumbs.shop_now'}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                {{/each}}
+                </div>
+            </section>
+        {{/if}}
+
+        {{#if products.top_sellers}}
+        <section class="top-product-section home-section">
+            <div class="container-fluid container-lg">
+                {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
+            </div>
+        </section>
+        {{/if}}
+
+        {{{region name="home_below_top_products"}}}
+        
+        
+        {{#if products.new}}
+        <section class="new-product-section home-section">
+            <div class="container-fluid container-lg">
+                {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
+            </div>
+        </section>
+        {{/if}}
+
+        
+
+         {{#if theme_settings.display-content-snippets}}
+        <section class="content-snippet-section">
+            {{> components/epicContent/home-content-snippet}}
+        </section>
+        {{/if}}
+
+       {{{region name="home_below_featured_products"}}}
+
+
+        {{#if theme_settings.show-insta-feed}}
+            {{> components/epicContent/instagram-feed}}
+        {{/if}}
+
+    </div>
+{{#if theme_settings.left-category-menu}}
+        </div><!--col-xl-9-->
+    </div><!--row-->
+</div><!--container-fluid-->
+{{/if}}
+
+
+<script defer>
+if (typeof gtag === 'function') {
+    gtag('event', 'home', {
+        'send_to': 'AW-1068596292'
+    });
+}
+</script>
+
+<script defer>
+window.uetq = window.uetq || [];
+window.uetq.push('event', '', {
+    'ecomm_pagetype': 'home'
+});
+/* The ecomm_prodid parameter is the product ID of the product on the page. It is unique for each item and must match either the id or item_group_id attribute in your product feed. Numeric and alphanumeric (including hyphens) characters only, with a maximum of 50 characters. */
+/* The ecomm_pagetype parameter identifies the type of page the user has visited. Valid options: home, searchresults, category, product, cart, purchase, other. */
+</script>
+
+{{/partial}}
+{{> layout/base}}
